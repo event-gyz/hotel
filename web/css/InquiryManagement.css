@@ -1,0 +1,840 @@
+body{
+  background-color: #eee !important;
+}
+.ctiy_name{
+  width: 235px;
+}
+input{
+  padding-right: 0 !important;
+}
+.steps-box {
+        width: 960px;
+        margin: 30px auto 0;
+        overflow: hidden;
+    }
+    input{
+      border-radius: 3px;
+    }
+    select{
+      border-radius: 3px;
+    }
+    .steps .steps-head,
+    .steps .steps-title {
+        background: #eee;
+    }
+    .w1140 {
+        width: 1140px;
+        padding: 15px;
+        background: #fff;
+        margin: 30px auto;
+    }
+
+    .head-title {
+        margin: 10px 0;
+    }
+
+    .text-gray {
+        color: #333;
+    }
+
+    .text-lightGray {
+        color: #666;
+    }
+
+    .text-muted {
+        color: #999;
+    }
+
+    .por {
+        position: relative
+    }
+
+    .title {
+        font-size: 18px;
+        color: #333;
+        position: relative;
+        text-indent: 15px;
+        margin: 30px 0 10px;
+        padding-bottom: 10px;
+    }
+
+    .title:before {
+        display: block;
+        left: 0;
+        content: '';
+        position: absolute;
+        top: 3px;
+        width: 4px;
+        height: 20px;
+        background: #a51c30;
+    }
+    .title:after{
+      display: block;
+      left: 0;
+      top: 32px;
+      content: '';
+      position: absolute;
+      width: 100%;
+      border-top: 1px #ececec solid;
+    }
+    .title-msg {
+        color: #999;
+        font-size: 13px;
+    }
+
+    .m-b-none,
+    .form-group.m-b-none {
+        margin-bottom: none;
+    }
+
+    .form-control-feedback {
+        right: 5px;
+        color:#999;
+    }
+
+    .with-select {
+        width: 200px
+    }
+
+    .input-error {
+        border: 1px solid #f00
+    }
+
+    .discrib {
+        overflow: hidden;
+    }
+
+    .discrib li {
+        float: left;
+        width: 25%;
+        margin: 10px 0
+    }
+
+    .discrib li input {
+        display: block;
+    }
+    .btn_remove{
+        color:#666;
+    }
+    .btn_add,.btn_add:active,.btn_add:focus{
+        color:#a51c30;
+    }
+
+    .table-bordered>tbody>tr>td {
+        vertical-align: middle;
+    }
+    .table-interlacing>tbody>tr:nth-child(even){
+        background: #f9f9f9;
+    }
+    textarea {
+        box-sizing: border-box;
+    }
+    .zoom-table td{
+        white-space: nowrap
+    }
+    .m-t-xs{
+        margin-bottom: 10px !important;
+    }
+    .basicInformation{
+        padding: 20px;
+        color: #333333!important
+    }
+    .basicInformation>p{
+      margin-top:10px;
+    }
+    .notice{
+        color: #FF0000
+    }
+    .pricetitle{
+        overflow: hidden;
+        display: block;
+    }
+    .pricetitle h4{
+        float: left;
+    }
+    .pricetitle span{
+        float: right;
+    }
+    .hotelBasicInformation{
+        margin: 20px;
+        color: #333333!important;
+        border-bottom: 1px solid #c4c3c3
+    }
+    .modelTitle .ticon{
+       height: 20px;
+       width: 5px;
+       background: rgba(204, 51, 51, 1)!important;
+       display: block;
+       float: left;
+       margin: 0px 10px 0 19px;
+    }
+    .modelTitle h4{
+       width: 180px;
+       display: table;
+    }
+    .modelTitle .icon{
+        width: 30px;
+        height: 30px;
+        float: right;
+        display: inline-block;
+        margin-top: -30px;
+        cursor: pointer;
+    }
+    .down{
+      background: url('/images/down.png');
+      background-size: 100% 100%
+    }
+    .up{
+      background: url('/images/up.png');
+      background-size: 100% 100%
+    }
+    .font-normal{color: red}
+    .finput>div{display:inline-block;min-height: 60px;}
+    .finput label{
+      display:block;
+    }
+    .finput.first>div{min-height:36px !important;}
+    .inputName{
+      display: inline-block;
+      width: 100px;
+      float: left;
+      text-align: right;
+      margin-right: 15px;
+    }
+    .inputContent{
+        float: left;
+    }
+    .finput>div{
+        margin-left:125px;
+    }
+    .inputContent input{
+        width: 230px;
+        height: 35px;
+        border-radius: 3px;
+    }
+    .inputContent select{
+        width: 230px;
+        height: 35px;
+        border-radius: 3px;
+    }
+    .inputContent textarea{
+        width: 710px;
+        border-radius: 3px
+    }
+    .Drive .line{
+        display: inline-block;
+        width: 33%;
+        height: 1px;
+        border-bottom: 1px solid #c4c3c3;
+        float: left;
+        margin:8px 50px 40px;
+    }
+    .Drive{
+      overflow: hidden;
+      margin-top:32px
+    }
+    .Drive .text{
+      float: left;
+    }
+    .chuxing .icon{
+        opacity: 0;
+    }
+    .cplane>div:nth-child(1) .icon{
+      opacity: 1;
+    }
+    .cplane>div:last-child .iconAdd{
+      display:block;
+    }
+    .ctrain>div:nth-child(1) .icon{
+      opacity: 1;
+    }
+    .ctrain>div:last-child .iconAdd{
+      display:block;
+    }
+    .chuxing input,.chuxing select{
+      width: 138px;
+    }
+     .chuxing>div{
+      float: left;
+      margin-right: 10px
+     }
+     .chuxing{
+      overflow: hidden;
+      margin-left: 170px;
+      margin-bottom: 20px
+     }
+     .chuxing .icon{
+      background: url(/images/flyplane.png) rgba(242, 242, 242, 1) no-repeat;
+      background-size: 70% 70%;
+      width: 35px;
+      height: 35px;
+      border-radius: 17px;
+      background-position-x: 6px;
+      background-position-y: 5px;
+     }
+     .chuxing input{
+      margin-right: 15px
+     }
+     .chuxing select{
+      margin-left: 10px;
+     }
+     .train .icon{
+      background: url(/images/train.png) rgba(242, 242, 242, 1) no-repeat;
+      background-size: 70% 70%;
+      width: 35px;
+      height: 35px;
+      border-radius: 17px;
+      background-position-x: 6px;
+      background-position-y: 5px;
+     }
+     .iconAdd{
+      background: url(/images/priceAdd.png) no-repeat;
+      width: 29px;
+      height: 29px;
+      background-size: 100% 100%;
+      display:none;
+     }
+     .iconReduce{
+      background: url(/images/priceReduce.png) no-repeat;
+      width: 29px;
+      height: 29px;
+      background-size: 100% 100%;
+     }   
+     .addRecuse>div{
+      float: left;
+      margin-right: 5px;
+      cursor: pointer;
+     }
+/*     .cplane>div:nth-child(1) .iconReduce{
+       display: none;
+     }*/
+/*     .ctrain>div:nth-child(1) .iconReduce{
+       display: none;
+     } */
+     .error{
+        display: block;
+         color: #f60;
+     }
+     .contactform{
+      padding: 0 60px;
+     }
+     .contactform>div{
+      overflow: hidden;
+      width: 30%;
+      display: inline-block;
+     }
+     .contactform>div>span{
+      float: left;
+     }
+     .contactform>div>div{
+      float: left;
+     } 
+     .contactform .ftext{
+      width: 80px;margin-right:10px;
+      text-align: right;
+     } 
+     .formOk{
+      width: 25px;
+      height: 25px;
+      margin-left:30px;
+      background:url('/images/ok.png');
+      background-size: 100% 100%;
+      display: table-cell;
+     }
+     .formError{
+      width: 25px;
+      height: 25px;
+      margin-left:30px;
+      background:url('/images/priceReduce.png');
+      background-size: 100% 100%;
+      display: table-cell;
+     }
+     .hotelForm{
+/*      display: none;*/
+     }
+     .RoomQuotation{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;
+     }
+     .RoomTable{
+      padding: 0 20px 30px;
+      display: none;
+     }
+     .RoomTable input{
+      width:75px;
+      border: none;
+      margin-right: 8px;
+     }
+     .RoomTable table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin:40px 0;
+     }
+     .RoomTable td div{
+      background: #cccccc;
+      border: 1px solid #cccccc;
+      width: 105px;
+      border-radius: 3px;
+      margin: 0 auto;
+      text-align: left;
+     }
+     .RoomTable  thead tr{
+      background: #cccccc;
+      height: 40px;
+      width: 100%
+     }
+     .RoomTable  thead tr td{
+      text-align: center;
+      width: 25%;
+     }
+     .RoomTable tbody tr{
+      height: 67px;
+      border-bottom: 1px solid #cccccc
+     }
+     .RoomTable tbody tr td{
+      text-align: center;
+      border-left: 1px solid #cccccc
+     } 
+     .RoomTable tbody .wl .bgc{
+      background: #cccccc
+     }
+     .RoomTable tbody .wl input{
+      width:14px;
+     }
+     .RoomTable tbody .wl .wlbg{
+      text-align: left;
+      padding-left: 20px;
+     }
+    .wlbg label{
+      position: relative;
+      width: 50px;
+    }
+    .wlbg .wl{
+      position: absolute;
+      top: -28px;
+      overflow: hidden;
+    }
+    .wlbg span{
+      position: absolute;
+      overflow: hidden;
+      top:8px;
+      width: 50px;
+    }
+    .wlbg textarea{
+      border-radius: 3px;
+    }
+    /*会议室议价*/
+    .MeetingPackagePrice{
+     margin: 20px;
+     color: #333333!important;
+     border-bottom: 1px solid #c4c3c3;
+    }
+    .MeetingPackagePrice table{
+      border: 1px solid #cccccc;
+      margin: 40px 0;
+    }
+    .MeetingPackagePrice .MeetContent{
+      padding: 10px;
+      display: none;
+    }
+    .MeetingPackagePrice .MeetContent .notice{
+      margin-left:10px
+    }
+    .MeetingPackagePrice .MeetContent table thead td{
+      padding: 10px
+    }
+    .MeetingPackagePrice table thead tr{
+      background:#cccccc;
+    }
+    .MeetingPackagePrice table tbody .inputSm{
+      width:55px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    .MeetingPackagePrice table tbody .inputMidlle{
+      width:45px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    .MeetingPackagePrice table tbody .inputLarge{
+      width:80px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    select.inputLarge{
+      width: 130px !important;
+      margin: 0 10px !important;
+    }
+    .zdy_input{
+      width: 130px !important;
+      margin: 0 10px !important;
+    }
+    .MeetingPackagePrice table tbody td{
+      border: 1px solid #cccccc;
+      text-align: center;
+      height: 112px;
+    }
+    .MeetContent .meet_add{
+      display: none;
+    }
+    .MeetContent tbody tr:last-child .meet_add{
+      display: block;
+    }
+    /*餐饮报价*/
+    .FoodPrice{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;
+    }
+    .FoodPrice .FoodContent{
+      margin: 20px;
+      display: none;
+    }
+    .FoodPrice table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin: 40px 0;
+    }
+    .FoodPrice table thead tr{
+      background: #cccccc;
+      height: 45px;
+    }
+    .FoodPrice table thead tr td{
+      /*width: 25%;*/
+      text-align: center;
+    }
+    .FoodPrice table tbody tr{
+      height: 51px;
+    }
+    .FoodPrice table tbody tr td{
+      text-align: center;
+      border: 1px solid #cccccc;
+    }
+    .FoodPrice table tbody tr td input{
+      height: 36px;
+    }
+    .FoodPrice table tbody .priceInput{
+      border: 1px solid #cccccc;
+      width: 182px;
+      margin: 0 auto;
+      background: #eee
+    }
+    .FoodPrice table tbody .priceInput input{
+      border: none;
+      width: 130px;
+      margin-right: 3px;
+    }
+    /*会议包报价*/
+    .ConferencePackage{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;
+    }
+    .ConferContent{
+      margin: 20px;
+      display: none;
+    }
+    .ConferContent table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin: 40px 0;
+    }
+    .ConferContent table thead tr{
+      background: #cccccc;
+      height: 45px;
+    }
+    .ConferContent table thead tr td{
+      text-align: center;
+      padding: 0 10px;
+    }
+    .ConferContent table tbody tr{
+      height: 54px;
+    }
+    .ConferContent table tbody tr td{
+      text-align: center;
+      border: 1px solid #cccccc;
+    }
+    .ConferTable{
+      text-align: left !important;
+    }
+    .ConferTable div {
+      display: inline-block;
+    }
+    .ConferTable div.select_packge{
+      display: none;
+    }
+    .ConferTable .ConferButton{
+      display: none;
+    }
+    .ConferTable div span{
+      position: relative;
+      display:inline-block;
+      height: 35px;
+      line-height: 35px;
+      background: rgba(204, 51, 51, 1);
+      border-radius: 3px;
+      padding:0 30px;
+      color: white;
+      margin:5px;
+    }
+    .ConferTable i.close{
+      background: url('/images/closeicon.jpg');
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-size: 100% 100%;
+      opacity: 1!important;
+      right: 5px;
+      top: 10px;
+    }
+    .ConferTable select{
+      height: 32px;
+      width: 150px;
+      margin: 5px
+    }
+    .ConferButton button{
+     height: 32px;
+     width: 50px;
+     border: 1px solid #cccccc;
+     border-radius: 3px;
+     margin: 5px;
+    }
+    .confAdd{
+      height: 30px;
+      width: 30px;
+      background: rgba(204, 204, 204, 1);
+      border: none;
+      border-radius: 3px;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 5px 5px;
+    }
+    .confAdd:hover{
+      background-size: rgba(165, 161, 161, 1);
+    }
+    /*会场额外收费设施*/
+    .ExtraChargefacilities{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;     
+    }
+    .extraContent{
+       margin: 20px;
+       display: none;
+    }
+    .ExtraChargefacilities table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin: 40px 0;
+    }
+    .ExtraChargefacilities table thead tr{
+      background: #cccccc;
+      height: 45px;
+    }
+    .ExtraChargefacilities table thead tr td{
+      text-align: center;
+    }
+    .ExtraChargefacilities table tbody tr{
+      height: 54px;
+    }
+    .ExtraChargefacilities table tbody tr td{
+      text-align: center;
+      border: 1px solid #cccccc;
+    }
+    .ExtraChargefacilities table tbody .inputSm{
+      width:85px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    .ExtraChargefacilities table tbody .inputMidlle{
+      width:140px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    .ExtraChargefacilities table tbody .inputLarge{
+      width:250px;height: 36px;padding-right: 0!important;
+      margin:3px;
+    }
+    .add_equip{
+      display: none
+    }
+    .extraContent tbody tr:last-child .add_equip{
+      display: block;
+    }
+    /*酒店用车报价*/
+    .HotelCar{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;      
+    }
+    .HotelContent{
+      margin: 20px;
+      display: none;
+    }
+    .HotelCar table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin: 40px 0;
+    }
+    .HotelCar table thead tr{
+      background: #cccccc;
+      height: 45px;
+    }
+    .HotelCar table thead tr td{
+      text-align: center;
+    }
+    .HotelCar table tbody tr td{
+      text-align: center;
+      height: 54px;
+      border: 1px solid #cccccc
+    }
+    .HotelCar table tbody tr td input{
+      width: 120px;
+      height: 36px;
+    }
+    .HotelCar table tbody tr td .inputLg{
+      width: 200px;
+    }
+    .HotelCar .last_price{
+      width: 70px;
+    }
+    .HotelCar .last_car_div{
+      background: #cccccc;
+      width: 126px;
+      text-align: left;
+      border-radius: 3px;
+      margin: 0 auto;
+    }
+    .HotelContent .add_car{
+      display: none;
+    }
+    .HotelContent tbody:last-child .add_car{
+      display: block;
+    }
+    /*其他*/
+    .Other{
+      margin: 20px;
+      color: #333333!important;
+      border-bottom: 1px solid #c4c3c3;    
+    }
+    .OtherContent{
+      margin: 20px;
+      display: none;
+    }
+    .OtherContent select{
+      width: 178px;
+      height: 36px;
+      margin-left: 20px;
+      border-radius: 3px;
+    }
+     .Other table{
+      width: 100%;
+      border: 1px solid #cccccc;
+      margin-top:40px;
+    }
+    .Other table thead tr{
+      background: #cccccc;
+      height: 45px;
+    }
+    .Other table thead tr td{
+      text-align: center;
+    }
+    .Other table tbody tr td{
+      text-align: center;
+      height: 54px;
+      border: 1px solid #cccccc
+    }
+    .OtherTextarea{
+      text-align: left !important;
+      padding:10px 50px;
+    }
+    .OtherTextarea span{
+      display: inline-block;
+      width: 120px;
+      vertical-align: middle;
+      margin-top: -50px;
+    }
+    .OtherTextarea textarea{
+      width: 800px;
+      border-radius: 3px;
+    }
+    .OtherContent p{
+      margin:20px 0;
+    }
+    .OtherInput{
+      width:200px;
+    }
+    .OtherOk{
+      background: rgba(22, 155, 213, 1);
+      color: #ffffff;
+      text-align: center;
+      padding: 0!important;
+      width: 60px
+    }
+    .OtherOk:hover{
+      background: rgba(23, 128, 213, 1);
+    }
+    .OtherContent .additem{
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .OtherContent .additem span{
+      padding:10px 20px;
+      border-radius: 3px;
+      border:1px solid #cccccc;
+      margin: 5px;
+      display: inline-block;
+    }
+    /*last textarea*/
+    .all_Other{
+      padding: 0 40px;
+    }
+    .all_Other textarea{
+      border-radius: 3px;
+    }
+    .all_Other input[type="radio"]{
+      vertical-align: middle;
+      margin: 0 10px 0 0;
+    }
+    .all_Other label{
+      margin-right: 20px;
+    }
+    .RoomQuotation input{
+      padding-right: 0px !important;
+    }
+    .button_bar{
+      text-align: center;
+      margin-top: 20px;
+    }
+    .button_bar input{
+      width: 140px;
+      height: 40px;
+      background: rgba(165, 28, 48, 1);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      margin:0 20px;
+      text-align: center;
+    }
+        .button_bar button{
+      width: 140px;
+      height: 40px;
+      background: rgba(165, 28, 48, 1);
+      color: white;
+      border: none;
+      border-radius: 3px;
+      margin:0 20px;
+    }
+    .additem .iconfont{
+      position: absolute;
+      right: -11px;
+      top: -14px;
+      color: #a9a6a6;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .additem>span{
+      position: relative;
+    }
+    .contactform>div{
+      height: 55px;
+    }
+    .aformError .error-border{
+     border: 2px solid #c41e1e !important
+    }

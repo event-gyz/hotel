@@ -1,0 +1,290 @@
+@charset "UTF-8";
+
+/**
+ * 
+ * @title 会唐网手机版
+ * @authors goodliang
+ * @date 2016-03-14 17:03:26
+ * 
+ */
+
+html,
+body {
+    height: 100vh;
+    background-color: #f3f3f3;
+}
+
+body {
+    line-height: 2;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+em,
+i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container {
+    font-size: 14px;
+    height: 100%;
+    background: #f3f3f3;
+    min-height: 100%;
+}
+
+[data-dpr="2"] .container {
+    font-size: 28px;
+}
+
+[data-dpr="3"] .container {
+    font-size: 42px;
+}
+
+.f12 {
+    font-size: 12px !important;
+}
+
+[data-dpr="2"] .f12 {
+    font-size: 24px !important;
+}
+
+[data-dpr="3"] .f12 {
+    font-size: 36px !important;
+}
+
+.f14 {
+    font-size: 14px !important;
+}
+
+[data-dpr="2"] .f14 {
+    font-size: 28px !important;
+}
+
+[data-dpr="3"] .f14 {
+    font-size: 42px !important;
+}
+
+.f16 {
+    font-size: 16px !important;
+}
+
+[data-dpr="2"] .f16 {
+    font-size: 32px !important;
+}
+
+[data-dpr="3"] .f16 {
+    font-size: 48px !important;
+}
+
+.f18 {
+    font-size: 18px !important;
+}
+
+[data-dpr="2"] .f18 {
+    font-size: 36px !important;
+}
+
+[data-dpr="3"] .f18 {
+    font-size: 54px !important;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.mt0 {
+    margin-top: 0 !important;
+}
+
+.blue {
+    color: #49a1ff;
+}
+
+.red {
+    color: #a51c30;
+}
+
+.orange {
+    color: #eb8a02;
+}
+
+.green {
+    color: #74b406;
+}
+
+.gray {
+    color: #999;
+}
+
+.topBar {
+    background: #a51c30;
+    position: relative;
+    padding: 0 0.266667rem;
+    height: 1.066667rem;
+    line-height: 1.066667rem
+}
+
+.topBar h2 {
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+}
+
+.topBar .logo {
+    display: inline-block;
+    width: 2rem
+}
+
+.topBar .logo img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.return {
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    height: 0.4rem;
+    top: 50%;
+    margin-top: -0.2rem;
+}
+
+.return a {
+    color: #fff;
+}
+
+.return span {
+    float: left;
+    line-height: 0.4rem;
+}
+
+.return img {
+    height: 100%;
+    margin-right: 0.133333rem;
+    float: left;
+}
+
+.title {
+    width: 60%;
+    margin: 0.1rem auto;
+    text-align: center;
+    background: url(../images/line.png) center repeat-x;
+}
+
+.title h3 {
+    background: #f3f3f3;
+    display: inline-block;
+    text-align: center;
+    padding: 0 1em;
+}
+
+.login-title {
+    margin: 0.5rem auto;
+}
+
+.logo-main {
+    background: #fff;
+}
+
+.logo-main .weui_cell {
+    padding: 0.133333rem 0.266667rem;
+}
+
+.logo-main .weui_label {
+    width: auto;
+    padding-right: 0.133333rem
+}
+
+.login-btn {
+    margin-top: 0.8rem;
+    padding: 0 0.266667rem;
+}
+
+.weui_btn_warn {
+    background: #a51c30;
+}
+
+.weui_btn_warn:not(.weui_btn_disabled):active {
+    background-color: #9e162a;
+}
+
+.list-box {
+    background: #fff;
+    margin-top: 0.4rem;
+    padding: 0.066667rem 0.266667rem;
+}
+.list-box li {
+    overflow: hidden;
+    line-height: 1.2em !important;
+    padding: 0.133333rem 0;
+}
+
+.list-box li .right {
+    text-align: right;
+}
+
+.list-box.line li {
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.list-box li.line-one {
+    border-top: 1px solid #D9D9D9;
+}
+
+.list-box li i {
+    color: #666;
+    padding-right: 0.133333rem;
+}
+
+.list-box li:last-of-type {
+    border-bottom: 0;
+}
+
+.list_none {
+    text-align: center;
+    color: #999;
+    vertical-align: middle;
+}
+
+.list_none img {
+    width: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 2rem
+}
+
+.bot_area {
+    background: #fff;
+    padding: 0.133333rem;
+}
+
+.bottom {
+    height: 2.0rem;
+}

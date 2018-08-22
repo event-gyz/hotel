@@ -1,0 +1,114 @@
+@charset "UTF-8";
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.nav-title {
+    position: relative;
+    background: #fff;
+}
+.nav-title i.iconfont {
+    position: absolute;
+    color: #A9A9A9;
+    left: 10px;
+    top: 8px;
+}
+.nav-title h2 {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+}
+
+
+
+
+.info-room-hot {
+    background: #fff;
+}
+.info-room-hot .title {
+    position: relative;
+    padding: 10px 20px;
+    overflow: hidden;
+    height: 40px;
+}
+.info-room-hot .title li.line {
+    height: 20px;
+    border-bottom: 1px solid #eee;
+}
+.info-room-hot .title li.text {
+    position: absolute;
+    width: 100px;
+    font-size: 16px;
+    color: #333;
+    top:20px;
+    left: 50%;
+    margin-left: -65px;
+    text-align: center;
+    background: #fff url("/public/hotel/images/3.png") no-repeat 20px center;
+    background-size: 17px 17px;
+    padding-left: 30px;
+}
+.info-room-hot .list-box {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.info-room-hot .style {
+    float: left;
+    width: 48%;
+    margin: 0 0 10px 1.5%;
+    padding: 0;
+    overflow: hidden;
+}
+.info-room-hot .style a {
+    text-decoration: none;
+}
+.info-room-hot .style p.img img {
+    width: 100%;
+    height: 125px;
+}
+.info-room-hot .style p.img {
+    width: 100%;
+    height: 125px;
+    margin-bottom: 5px;
+}
+.info-room-hot .style p.text-title {
+    font-size: 15px;
+    line-height: 25px;
+    height: 25px;
+    overflow: hidden;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+.info-room-hot .style p.price {
+    font-size: 18px;
+    line-height: 25px;
+    color: #F34343;
+    padding: 0;
+    margin: 0;
+}
+.info-room-hot .style p.price i {
+    font-style: normal;
+    font-size: 13px;
+    margin-right: 3px;
+}
+.info-room-hot .style p.price span {
+    font-size: 13px;
+    color: #2a2a2a;
+    margin-left: 1px;
+}
+#global_login {
+    position: fixed;
+    background: #000 url('../images/1.gif') no-repeat center;
+    z-index: 99999;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rang silder</title>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
+</head>
+<body>
+
+<div style="padding:50px"><input type="text" id="example_id2" name="example_name" value="" />
+</div>
+
+
+<script type="text/javascript" src="js/vendor/jquery-1.12.3.min.js"></script>
+
+<script type="text/javascript" src="js/ion-rangeSlider/ion.rangeSlider.js"></script>
+
+<script type="text/javascript">
+	$("#example_id2").ionRangeSlider({
+		 values: [0,50,100,150,200,300,400,500,600,700,800,900,1000,1500,2000,3000,5000,'1万','2万','3万','4万','5万'],
+		type:'double',
+		min:0,
+		max:+20000,
+		from: 300,
+    to: 1500,
+		step:10,
+		grid:true,
+		prefix:'¥'
+	});
+</script>
+
+
+</body>
+</html>

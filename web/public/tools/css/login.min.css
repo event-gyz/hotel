@@ -1,0 +1,54 @@
+html {
+    height: 100%;
+}
+
+body.signin {
+    background: #0358aa;
+    height: auto;
+}
+
+.signinpanel {
+    width: 960px;
+    height: 420px;
+    padding: 40px;
+    box-shadow: 0 0 8px #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -480px;
+    background: #fff;
+}
+
+.signinpanel h1.logo {
+    margin: 0 0 16px;
+    font-size: 0;
+}
+
+.signinpanel .uname {}
+
+.signinpanel .pword {}
+
+.signinpanel .btn {
+    margin-top: 15px;
+}
+
+.signin-form {
+    margin-left: 640px;
+}
+
+.signin-form h3 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-footer {
+    border-top: solid 1px rgba(255, 255, 255, .3);
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px 0 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+}

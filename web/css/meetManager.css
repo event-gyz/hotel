@@ -1,0 +1,58 @@
+*{
+	font-size: 14px;
+    font-family: 'Arial','Microsoft YaHei';
+}
+label{
+	font-weight: normal !important;
+}
+.btn-info{
+	background-color: #3c8dbc !important;
+    border-color: #367fa9 !important;
+}
+.part1{
+	margin-top: 20px;
+    margin-bottom: 30px;
+}
+td>a{
+	margin-right: 10px;
+}
+td{
+	text-align: center;
+}
+td>span{
+	width: 52px;
+}
+td>font{
+	color:#FF9900;
+}
+th{
+	text-align: center;
+}
+.meetstart{
+	background-color: rgba(0, 204, 51, 1);
+	color: white;
+	display: inline-block;
+	padding: 2px;
+	font-size: 12px;
+}
+.meeting{
+	background-color: rgba(51, 153, 255, 1);
+	color: white;
+	display: inline-block;
+	padding: 2px;
+    font-size: 12px;
+}
+.meetpause{
+	background-color: rgba(255, 153, 0, 1);
+	color: white;
+	display: inline-block;
+	padding: 2px;
+	font-size: 12px;
+}
+.meetend{
+	background-color: rgba(255, 102, 102, 1);
+	color: white;
+	display: inline-block;
+	padding: 2px;
+	font-size: 12px;
+}

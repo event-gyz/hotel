@@ -1,0 +1,23 @@
+.inputNumber-relative {
+	position: relative;
+}
+.inputNumber-absolute {
+	position: absolute;
+	top: 3px;
+	right: 0px;
+	width: 15px;
+	height: 17px;
+}
+.inputNumber-up {
+	width: 15px;
+	height: 8px;
+	background: url("../images/inputNumber.jpg") center center no-repeat;
+	background-position: 0 0;
+}
+.inputNumber-down {
+	margin-top: 1px;
+	width: 15px;
+	height: 8px;
+	background: url("../images/inputNumber.jpg") center center no-repeat;
+	background-position: 0 -9px;
+}

@@ -1,0 +1,290 @@
+.steps {
+        display: table;
+        width: 100%;
+        font-size: 0;
+        line-height: 1.5;
+        table-layout: fixed;
+        border-collapse: separate
+    }
+
+    .steps .steps-item {
+        position: relative;
+        display: table-cell;
+        vertical-align: top
+    }
+
+    .steps .steps-item.steps-status-wait .steps-head-inner {
+        border-color: #ccc;
+        background-color: #fff
+    }
+
+    .steps .steps-item.steps-status-wait .steps-head-inner>.steps-icon {
+        color: #ccc
+    }
+
+    .steps .steps-item.steps-status-wait .steps-description,
+    .steps .steps-item.steps-status-wait .steps-title {
+        color: #999
+    }
+
+    .steps .steps-item.steps-status-wait .steps-tail>i {
+        background-color: #e9e9e9
+    }
+
+    .steps .steps-item.steps-status-process .steps-head-inner {
+        border-color: #a51c30;
+        background-color: #a51c30
+    }
+
+    .steps .steps-item.steps-status-process .steps-head-inner>.steps-icon {
+        color: #fff
+    }
+
+    .steps .steps-item.steps-status-process .steps-description,
+    .steps .steps-item.steps-status-process .steps-title {
+        color: #666
+    }
+
+    .steps .steps-item.steps-status-process .steps-tail>i {
+        background-color: #e9e9e9
+    }
+
+    .steps .steps-item.steps-status-finish .steps-head-inner {
+        border-color: #a51c30;
+        background-color: #fff
+    }
+
+    .steps .steps-item.steps-status-finish .steps-head-inner>.steps-icon {
+        color: #a51c30
+    }
+
+    .steps .steps-item.steps-status-finish .steps-tail>i::after {
+        width: 100%;
+        transition: all .4s ease 0s;
+        opacity: 1;
+        background: #a51c30
+    }
+
+    .steps .steps-item.steps-status-finish .steps-description,
+    .steps .steps-item.steps-status-finish .steps-title {
+        color: #999
+    }
+
+    .steps .steps-item.steps-custom .steps-head-inner>.steps-icon {
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        font-size: 20px
+    }
+
+    .steps .steps-item.steps-custom.steps-status-process .steps-head-inner>.steps-icon {
+        color: #a51c30
+    }
+
+    .steps .steps-head,
+    .steps .steps-main {
+        position: relative;
+        display: inline-block;
+        vertical-align: top
+    }
+
+    .steps .steps-head {
+        background: #fff
+    }
+
+    .steps .steps-head-inner {
+        display: block;
+        width: 26px;
+        height: 26px;
+        margin-right: 8px;
+        font-size: 14px;
+        line-height: 26px;
+        transition: background-color .3s ease 0s, border-color .3s ease 0s;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 26px;
+        -webkit-border-radius: 26px; 
+        -moz-border-radius: 26px; 
+    }
+
+    .steps .steps-head-inner>.steps-icon {
+        position: relative;
+        top: -1px;
+        line-height: 1;
+        color: #a51c30
+    }
+
+    .steps .steps-head-inner>.steps-icon.anticon {
+        font-size: 12px
+    }
+
+    .steps .steps-main {
+        margin-top: 3px
+    }
+
+    .steps .steps-title {
+        display: inline-block;
+        padding-right: 10px;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 700;
+        color: #666;
+        background: #fff
+    }
+
+    .steps .steps-item-last .steps-title {
+        padding-right: 0
+    }
+
+    .steps .steps-description {
+        font-size: 12px;
+        color: #999
+    }
+
+    .steps .steps-tail {
+        position: absolute;
+        top: 13px;
+        left: 0;
+        width: 100%;
+        padding: 0 15px
+    }
+
+    .steps .steps-tail>i {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        vertical-align: top;
+        border-radius: 1px;
+        background: #e9e9e9
+    }
+
+    .steps .steps-tail>i::after {
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 100%;
+        content: "";
+        opacity: 0;
+        background: #e9e9e9
+    }
+
+    .steps.steps-small .steps-head-inner {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 18px
+    }
+
+    .steps.steps-small .steps-head-inner>.steps-icon.anticon {
+        top: 0;
+        display: inline-block;
+        transform: scale(.75) rotate(0)
+    }
+
+    :root .steps.steps-small .steps-head-inner>.steps-icon.anticon {
+        filter: none;
+        font-size: 12px
+    }
+
+    .steps.steps-small .steps-main {
+        margin-top: 0
+    }
+
+    .steps.steps-small .steps-title {
+        margin-bottom: 4px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #666
+    }
+
+    .steps.steps-small .steps-description {
+        font-size: 12px;
+        color: #999
+    }
+
+    .steps.steps-small .steps-tail {
+        top: 8px;
+        padding: 0 15px
+    }
+
+    .steps.steps-small .steps-tail>i {
+        width: 100%;
+        height: 1px;
+        border-radius: 1px
+    }
+
+    .steps .steps-item.steps-custom .steps-head-inner,
+    .steps.steps-small .steps-item.steps-custom .steps-head-inner {
+        width: inherit;
+        height: inherit;
+        line-height: inherit;
+        border: 0;
+        border-radius: 0;
+        background: rgba(0, 0, 0, 0)
+    }
+
+    .steps-vertical .steps-item {
+        display: block
+    }
+
+    .steps-vertical .steps-tail {
+        position: absolute;
+        top: 0;
+        left: 13px;
+        width: 1px;
+        height: 100%;
+        padding: 30px 0 4px
+    }
+
+    .steps-vertical .steps-tail>i {
+        width: 1px;
+        height: 100%
+    }
+
+    .steps-vertical .steps-tail>i::after {
+        width: 100%;
+        height: 0
+    }
+
+    .steps-vertical .steps-status-finish .steps-tail>i::after,
+    .steps-vertical.steps-small .steps-tail>i {
+        height: 100%
+    }
+
+    .steps-vertical .steps-head {
+        float: left
+    }
+
+    .steps-vertical .steps-head-inner {
+        margin-right: 16px
+    }
+
+    .steps-vertical .steps-main {
+        display: block;
+        min-height: 47px;
+        overflow: hidden
+    }
+
+    .steps-vertical .steps-main .steps-title {
+        line-height: 26px
+    }
+
+    .steps-vertical .steps-main .steps-description {
+        padding-bottom: 12px
+    }
+
+    .steps-vertical.steps-small .steps-tail {
+        position: absolute;
+        top: 0;
+        left: 9px;
+        padding: 22px 0 4px
+    }
+
+    .steps-vertical.steps-small .steps-title {
+        line-height: 18px
+    }

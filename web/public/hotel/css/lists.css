@@ -1,0 +1,554 @@
+@charset "UTF-8";
+* {padding: 0;margin: 0;}
+ul,li {
+    list-style: none;
+}
+.list-main {
+    background: #F3F4F8;
+}
+.list-main-head {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    background: #4FA9FF;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.list-search {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.list-search p.goBack {
+    position: absolute;
+    left: 10px;
+    top:10px;
+}
+.list-search p.goBack i,
+.list-search p.position i {
+    color: #fff;
+}
+.list-search p.position {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.list-search p.search {
+    position: relative;
+    margin: 0 50px 0 50px;
+    background: #fff;
+    border-radius: 15px;
+    height: 30px;
+    overflow: hidden;
+}
+.list-search p.search input {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 30px;
+    border: none;
+}
+.list-search p.search i.search {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    color: #999;
+}
+.list-search p.search i.close {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    color: #999;
+}
+.list-main-list {
+    background: #fff;
+}
+.list-main-list div.style {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    overflow: hidden;
+}
+.style .style-end {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+}
+.style ul.style-box {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.style-box .style-left {
+    float: left;
+    width: 110px;
+    overflow: hidden;
+}
+.style-box .style-left img {
+    height: 80px;
+}
+.style-box .style-right {
+    margin-left: 120px;
+}
+.style-right h3 {
+    font-size: 15px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+}
+.style-right p.info {
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.style-right div.price {
+    padding-top: 0px;
+    width: 100%;
+    overflow: hidden;
+}
+.style-right div.price p.left {
+    float: left;
+    font-size: 12px;
+    color: #999;
+    padding-top: 6px;
+}
+.style-right div.price p.left span {
+    float: left;
+    font-size: 12px;
+    height: 12px;
+    line-height: 12px;
+    color: #999;
+    border-right: 1px solid #eee;
+    padding-right: 5px;
+    margin-right: 5px;
+}
+.style-right div.price p.left i {
+    float: left;
+    padding: 1px 3px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 10px;
+    font-style: normal;
+}
+.style-right div.price p.right {
+    float: right;
+    color: #FF0022;
+    font-size: 18px;
+}
+.style-right div.price p.right i {
+    color: #FF0022;
+    font-size: 12px;
+    font-style: normal;
+    margin-right: 3px;
+}
+.style-right div.price p.right span {
+    font-size: 12px;
+    color: #999;
+    margin-left: 3px;
+}
+
+.style-right div.price p.right1 {
+    float: right;
+    color: #ccc;
+    font-size: 18px;
+}
+.style-right div.price p.right1 i {
+    color: #ccc;
+    font-size: 12px;
+    font-style: normal;
+    margin-right: 3px;
+}
+.style-right div.price p.right1 span {
+    font-size: 12px;
+    color: #ccc;
+    margin-left: 3px;
+}
+
+.color5 {
+    background: #C6924F;
+    color: #fff;
+}
+.color4 {
+    background: #4181E5;
+    color: #fff;
+}
+.color3 {
+    background: #00B39B;
+    color: #fff;
+}
+.color2,.color1 {
+    background: #B5B5B5;
+    color: #fff;
+}
+.list-main-head table {
+    width: 100%;
+}
+.list-main-head table td {
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    overflow: hidden;
+    text-align: center;
+    color: #B4D6FF;
+}
+.list-main-head table td.cur {
+    color: #fff;
+}
+.list-main-head table td.cur i {
+    color: #fff;
+}
+.list-main-head table td i {
+    font-size: 10px;
+}
+.list-main-head table td.border {
+    border-right: 1px solid #B4D6FF;
+}
+.list-pop {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top:89px;
+    width: 100%;
+}
+.hotel-position {
+    width: 100%;
+    background: #fff;
+}
+.hotel-position td.left {
+    width: 90px;
+    background: #F0F0F0;
+}
+.hotel-position td.left div {
+    width: 90px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.hotel-position td.left div p {
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #E4E0E0;
+    text-align: center;
+}
+.hotel-position td.left div p.cur {
+    background: #fff;
+    color: #4895F2;
+}
+.hotel-position td.right {
+    padding: 0;
+}
+.hotel-position .right-style1 {
+    width: 100%;
+}
+.hotel-position .right-style1 td.style-left {
+    border-right:1px solid #E4E0E0;
+    padding-left: 5px;
+}
+.hotel-position .right-style1 td.style-left div,
+.hotel-position .right-style1 td.style-right div {
+    max-height: 300px;
+    overflow-y: auto;
+}
+.hotel-position .right-style1 td.style-right {
+    padding-right: 5px;
+}
+.hotel-position .right-style1 td.style-left div p,
+.hotel-position .right-style1 td.style-right div p {
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #E4E0E0;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #333;
+}
+.hotel-position .right-style1 td.style-left div p.cur ,
+.hotel-position .right-style1 td.style-right div p.cur {
+    color: #4895F2;
+    border-bottom: 1px solid #4895F2;
+}
+.hotel-position p.allCon i.selected {
+    position: absolute;
+    right: 5px;
+}
+.hotel-position .right-style2 {
+    padding-left: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.hotel-position .right-style2 p {
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #E4E0E0;
+    padding-left: 15px;
+    font-size: 12px;
+    color: #333;
+}
+.hotel-position .right-style2 p.cur {
+    color: #4895F2;
+    border-bottom: 1px solid #4895F2;
+}
+.hotel-position p.allCon i.selected {
+    position: absolute;
+    right: 5px;
+}
+.hotel-sort {
+
+    background: #fff;
+    padding:0 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.hotel-sort p {
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #E4E0E0;
+    padding-left: 15px;
+    font-size: 14px;
+    color: #333;
+}
+.hotel-sort p.cur {
+    color: #4895F2;
+    border-bottom: 1px solid #4895F2;
+}
+.hotel-sort p i.selected {
+    position: absolute;
+    right: 5px;
+}
+.hotel-star-price {
+    background: #fff;
+    padding:10px 20px;
+}
+.hotel-star-price .star {
+    margin-bottom: 5px;
+}
+.hotel-star-price .star p.title,
+.hotel-star-price .price p.title{
+    font-size: 15px;
+    color: #333;
+    line-height: 25px;
+    margin-bottom: 5px;
+}
+.hotel-star-price .star p.title span {
+    margin-left: 5px;
+    color: #ccc;
+}
+.hotel-star-price .star p.con {
+    padding-top: 10px;
+    text-align: right;
+    width: 100%;
+    overflow: hidden;
+}
+.hotel-star-price .star p.con span {
+    width: 25%;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    float: right;
+    margin: 0 5% 10px 0;
+}
+.hotel-star-price .star p.con span.cur {
+    color: #4895F2;
+    background: #DFEEFF;
+    border: 1px solid #4895F2;
+}
+.hotel-star-price p.price-scope {
+    color: #4895F2;
+    line-height: 25px;
+}
+.hotel-star-price p.price-scope input {
+    width: 40px;
+    font-size: 15px;
+    color: #4895F2;
+    border:none;
+}
+.hotel-star-price .price-scope-show {
+    width: 100%;
+    overflow: hidden;
+    color: #ccc;
+}
+.hotel-star-price .price-scope-show .left {
+    float: left;
+}
+.hotel-star-price .price-scope-show .right {
+    float: right;
+}
+.irs .irs-from,
+.irs .irs-to,
+.irs .irs-min,
+.irs .irs-max,
+.irs .irs-single {
+    display: none;
+}
+.irs .irs-line {
+    height: 0;
+    border: none;
+    border-top:1px solid #E8E8E8;
+}
+.irs .irs-bar {
+    height: 0;
+    border-bottom: none;
+}
+.irs .irs-slider {
+    top: 19px;
+}
+.hotel-button {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.hotel-button a.clear-con {
+    border-radius: 4px;
+    width: 30%;
+    height: 36px;
+    background: #CCC;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    float: left;
+    font-size: 15px;
+    text-decoration: none;
+}
+.hotel-button a.submit {
+    border-radius: 4px;
+    width: 50%;
+    height: 36px;
+    background: #4895F2;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    float: right;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+
+#searchPage{
+    position: absolute;
+    display: inline-block;
+    overflow: auto;
+}
+.searchPage-box {
+    width: 100%;
+    overflow: hidden;
+}
+#searchPage .weui-search-bar {
+    background: #fff;
+}
+#searchPage .weui-search-bar__box,#searchPage .weui-search-bar__label {
+    background: #efeff4;
+    border-radius: 50px;
+}
+#searchPage .weui-search-bar__form:after {
+    border: none;
+    border-radius:0;
+}
+.searchPage-title {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.searchPage-title p.left {
+    float: left;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.searchPage-title p.right {
+    float: right;
+    padding-right: 10px;
+    font-size: 12px;
+}
+.search-list {
+    width: 100%;
+    background: #fff;
+}
+.search-list tr td {
+    border-bottom: 1px solid #eee;
+    height: 40px;
+    padding: 0 10px;
+}
+.search-list tr td.left {
+    font-size: 14px;
+    color: #151515;
+}
+.search-list tr td.left span {
+    color: #666;
+}
+.search-list tr td.left i {
+    font-size: 12px;
+    color: #666;
+    font-style: normal;
+    margin-left: 5px;
+}
+.search-list tr td.right {
+    text-align: right;
+    font-size: 13px;
+    color: #666;
+}
+.login-more {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+
+
+/*切进动画*/
+.page {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0px;
+    bottom: 0;
+    background: #fff;
+    overflow: hidden;
+}
+
+.page .container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+.page-next {
+    z-index: 5;
+    -webkit-transition: -webkit-transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -ms-transition: transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: transform 300ms cubic-bezier(0.42, 0, 0.58, 1);
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+    display: none;
+}
+
+.page-in {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+#mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: .8;
+}

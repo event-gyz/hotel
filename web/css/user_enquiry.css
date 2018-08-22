@@ -1,0 +1,514 @@
+
+.shop_topbar{
+    background: #fff;
+    height: 125px;
+    padding-top:35px;
+    width: 100%;
+    overflow: visible;
+}
+.shop_header{
+    width: 1170px;
+    height: 120px;
+    margin: 0 auto;
+    background: #fff;
+}
+.s_info_l {
+    float: left;
+    width: 340px;
+}
+.s_info_l dl{
+    margin-bottom: 0;
+    height: 100px;
+}
+.s_info_l dt {
+    float: left;
+    margin-right: 15px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+.s_info_l dt img {
+    width: 100%;
+}
+.s_info_l dd.new_s_name{
+    font-size: 24px;
+    color: #333;
+}
+.s_info_l dd.new_s_role {
+    padding: 3px 3px 8px;
+    color: #999;
+    font-size: 12px;
+}
+.green {
+    color: #7fd659 !important;
+}
+.gray{
+    color: #bfbfbf !important;
+}
+
+.s_info_r{
+    float: right;
+    padding-top:65px;
+    text-align: right;
+}
+
+
+/*询单列表*/
+.eq_detailed {
+    overflow: hidden;
+}
+
+.eq_detailed dl {
+    margin-bottom: 0;
+}
+
+.eq_detailed dl dt,.eq_detailed dl dd {
+    float: left;
+    margin-right: 20px;
+}
+
+.eq_detailed dl dt{
+    font-weight: 500;
+}
+
+.eq_tab_tit ul,.nh_eq_tab_tit ul {
+    margin-bottom: 0;
+}
+
+.eq_tab_tit,.nh_eq_tab_tit {
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    margin: 10px auto 0;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+.eq_tab_tit .btn,.nh_eq_tab_tit .btn{
+    position: absolute;
+    right: 0;
+    top:10px;
+}
+.eq_tab_tit li ,.nh_eq_tab_tit li{
+    float: left;
+    padding: 0 15px 0 15px;
+    font-size: 16px;
+}
+
+.eq_tab_tit li a ,.nh_eq_tab_tit li a{
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.eq_tab_tit li a:hover {
+    color: #be0000;
+}
+
+.eq_tab_tit li.active a {
+    color: #be0000;
+    border-bottom: 2px solid #dc1010;
+}
+
+.nh_eq_tab_tit li a:hover {
+    color: #6892f3;
+}
+
+.nh_eq_tab_tit li.current{
+    color: #6892f3;
+    border-bottom: 2px solid #6892f3;
+}
+
+.eq_filter_area {
+    overflow: hidden;
+}
+
+.eq_filter {
+    overflow: hidden;
+    padding-top: 25px;
+    margin-bottom: 0px;
+}
+
+.eq_filter a {
+    cursor: pointer;
+    color: #666;
+}
+
+.eq_filter dt,
+.eq_filter dd {
+    float: left
+}
+
+.eq_filter dt {
+    color: #999;
+    font-weight: normal;
+    width: 50px;
+}
+
+.w70{
+    width: 70px !important;
+}
+
+.eq_filter dd {
+    padding-right: 20px;
+}
+
+.eq_filter dd a {
+    padding: 0 8px;
+    display: inline-block;
+}
+
+.eq_filter dd.active a {
+    background: #be0000;
+    color: #fff;
+}
+
+.eq_search {
+    padding-top: 25px;
+}
+.eq_list{
+    margin-top: 25px;
+}
+.eq_search .form-group label {
+    color: #999 !important;
+}
+
+.eq_list .table {
+    margin-bottom: 0 !important;
+}
+
+.eq_list_bt {
+    border: 1px solid #ddd;
+    border-top-width: 0;
+    padding: 8px 10px;
+    overflow: hidden;
+}
+
+.eq_tab_con {
+    display: none;
+}
+
+.eq_details_top {
+    padding: 15px 0 10px;
+}
+
+.eq_input01 .form-group {
+    margin-bottom: 0;
+}
+
+.eq_tool_list {
+    display: block;
+    margin-bottom: 0;
+}
+
+.eq_tool_list li {
+    float: left;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+.eq_de_bt {
+    overflow: hidden;
+}
+
+.eq_de_bt .form-group {
+    margin-bottom: 0;
+    color: #666
+}
+
+.m-t-md {
+    margin-top: 20px;
+}
+.table-bordered>thead>tr>th{
+    background: #efefef;
+    border: 1px #e1e1e1 solid;
+}
+.table-bordered>tbody>tr>td{
+    border: 1px #e1e1e1 solid;
+}
+.table>tbody>tr>td{
+    padding: 10px;
+    position: relative;
+}
+.fro{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    line-height: 16px;
+    background: #e62727;
+    color: #fff;
+    top: 5px;
+    left: 3px;
+    display: block;
+    border-radius: 50%;
+    -webkit-border-radius: 50%; 
+    -moz-border-radius: 50%;
+    overflow: hidden;
+}
+
+/*询单详情*/
+.font-w600{
+    font-weight: 600
+}
+.font-red{
+    color: #a51c30
+}
+.flight_detail{
+    border:  1px #e1e1e1 solid;
+    background: #fbf2f2;
+    padding: 10px;
+    color: #999999;
+    margin: 15px 0;
+}
+.flight_detail .table-bordered{
+    padding: 12px;
+    border: none;
+    margin-bottom: 15px;
+}
+.flight_detail .table-bordered>thead>tr>th{
+    background: none;
+    border: none;
+    color: #999999;
+}
+.flight_detail .table-bordered>tbody>tr>td{
+    background: #fff;
+    border-width: 0 0 1px 0;
+    border-bottom: 1px #e6e6e6 solid;
+    padding: 12px 0; 
+    vertical-align: middle;
+}
+.flight_detail .table-bordered>tbody>tr>{
+    padding: 0 12px;
+}
+.pink-color{
+    color: #dc5863;
+}
+.blue-color{
+    color: #69b0ec;
+}
+.sky-blue-color{
+    color: #7099f7;
+}
+
+.btn-blue {
+    color: #fff;
+    background-color: #7099f7;
+    border-color: #7098f4;
+}
+.btn-blue:hover, .btn-blue:focus, .btn-blue.focus, .btn-blue:active, .btn-blue.active, .open>.dropdown-toggle.btn-blue {
+    color: #fff;
+    background-color: #6892f3;
+    border-color: #5e8af0
+}
+.btn-blue:active, .btn-blue.active, .open>.dropdown-toggle.btn-blue {
+    background-image: none
+}
+
+.btn-pink {
+    color: #fff;
+    background-color: #dc5863;
+    border-color: #dc5863;
+}
+.btn-pink:hover, .btn-pink:focus, .btn-pink.focus, .btn-pink:active, .btn-pink.active, .open>.dropdown-toggle.btn-pink {
+    color: #fff;
+    background-color: #d5515c;
+    border-color: #d5515c
+}
+.btn-pink:active, .btn-pink.active, .open>.dropdown-toggle.btn-pink {
+    background-image: none
+}
+.btn-success {
+    color: #fff;
+    background-color: #5fc6a0;
+    border-color: #5fc6a0
+}
+
+.flight_detail dl{
+    margin: 0
+}
+.flight_detail dt{
+    padding-left:12px;
+    font-weight: 500;
+    text-align: right;
+    display: inline-block;
+}
+.flight_detail dd{
+    padding: 0 5px; 
+    display: inline-block;
+}
+.piaochecked ,.slt_state{
+width: 24px;
+height: 24px;
+display: block;
+padding-top: 3px;
+cursor: pointer;
+text-align: center;
+margin: 0 auto;
+background-image: url(../images/inputradio.gif);
+background-repeat: no-repeat;
+background-position: -30px 2px;
+}
+.radioclass {
+opacity: 0;
+cursor: pointer;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+filter: alpha(opacity=0);
+margin: 2px 0 0 2px !important;
+}
+.on_check {
+background-position: -2px 2px;
+}
+
+.slt_state{
+    background: url(../images/selected.png) no-repeat;
+    cursor: auto;
+}
+
+/*提交成功*/
+.nh_shop_topbar{
+    background: #fff;
+    height: 120px;
+    width: 100%;
+    overflow: visible;
+}
+.nh_s_info_l {
+    float: left;
+    width: 450px;
+    height: 83px;
+    padding-top:37px;
+}
+.nh_s_info_l dl{
+    margin-bottom: 0;
+    height: 100px;
+}
+.nh_s_info_l dt {
+    float: left;
+    margin-right: 15px;
+    width: 335px;
+    height: 50px;
+    overflow: hidden;
+}
+.nh_s_info_l dt img {
+    width: 100%;
+}
+.nh_s_info_l dd.new_s_name{
+    font-size: 15px;
+    color: #982b34;
+    margin-bottom: 3px;
+}
+.nh_s_info_l dd a.collect{
+    font-size: 12px;
+    border-radius: 15px;
+    line-height: 20px;
+    padding: 1px 12px;
+}
+
+.eq-success {
+    width: 800px;
+    margin: 100px auto;
+}
+.eq-success .panel-body {
+    padding: 50px 20px;
+}
+.eq-success .media-left {
+    vertical-align: middle;
+}
+.eq-success .panel-body .media-body p {
+    font-size: 12px;
+    margin-top: 20px;
+}
+.eq-success .media-body a {
+    color: #5199df;
+}
+
+/*南航询单+列表*/
+.nh_bg{
+    background: url(../images/nhbg.png) no-repeat center;
+    background-size: 100% 100%;
+}
+.nh_s_info_r{
+    float: right;
+    text-align: right;
+}
+.user_info{
+    line-height: 120px;
+    padding: 0 15px;
+}
+.user_signout{
+    padding: 0 5px;
+}
+.into_shop{
+    width: 158px;
+    height: 120px;
+    line-height: 120px;
+    background: #f5f5f5;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tab {
+    position: relative;
+    overflow: hidden;
+}
+.tab-con {
+    position: relative;
+    left: 10px;
+    overflow: hidden;
+}
+.tab-con-item {
+    display: none;
+}
+
+.tab-special-con {
+    position: relative;
+    overflow: hidden;
+    clear: both;
+}
+.tab-special-con-item {
+    display: none;
+    color: #fff;
+}
+
+.tabnav{
+    width:175px;
+    float: left;
+}
+.tabnav a{
+    width:175px;
+    height: 125px;
+    line-height: 125px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px #dfdfdf solid;
+    background: #fff;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+.tabnav a.current {
+    background: #7099f7 !important;
+    color: #fff !important;
+}
+
+.nh_active a {
+    background: #7099f7;
+    color: #fff;
+}
+.control-label .font-normal{
+    color: #be0000
+}
+.sort{
+    display: inline-block;
+    width: 13px;
+    height: 17px;
+    position: relative;
+    top: 3px;
+    background-image: url(../images/sorticon.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.sortup{
+    background-position: 0 0;
+}
+.sortdown{
+    background-position: -14px 0;
+}

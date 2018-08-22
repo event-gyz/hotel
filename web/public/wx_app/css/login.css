@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    font-family: '微软雅黑'
+}
+
+ul {
+    list-style-type: none
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block
+}
+
+.page {
+    background: #fff
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.logoIcon {
+    text-align: center;
+    overflow: hidden;
+    padding: 100px 0 55px;
+    background: #fff;
+    width:140px;
+    margin:0 auto;
+}
+.logoIcon img{
+    display: block;
+    width:100%;
+}
+.loginBox {
+    background: #fff;
+    /*    height: calc(100% - 230px);
+    height: -webkit-calc(100% - 230px);*/
+}
+
+.phoneBox {
+    width: 80%;
+    margin: 0 auto;
+    /*    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
+}
+
+.loginBox ul li {
+    margin-bottom: 20px;
+    background: url(../image/input_bg_img.png) center bottom no-repeat;
+    padding-bottom: 10px;
+    position: relative;
+    background-size: 100% 20%
+}
+
+.loginBox ul li i {
+    position: absolute;
+    width: 20px;
+    left: 10px;
+    display: block;
+    font-size: 20px
+}
+
+.loginBox ul li label {
+    display: block;
+    margin-left: 40px;
+    line-height: 21px
+}
+
+.loginBox ul li input {
+    outline: 0;
+    border: none;
+    background: 0 0;
+    width: 100%;
+    height: 30px;
+    font-size: 17px;
+}
+
+.loginBox .login,
+.loginBox .loginBtn,
+.loginBox .login_next,
+.loginBox .sendCode {
+    border-radius: 4px;
+    background: #a51c30;
+    font-size: 15px;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+    border: none;
+    color: #fff
+}
+
+.loginBox .loginBtn a,
+.loginBox .login_next a,
+.loginBox .sendCode a {
+    color: #fff;
+    font-size: 15px;
+    display: block
+}
+
+.loginBox .changeLogin {
+    overflow: hidden;
+    margin-top: 10px
+}
+
+.loginBox .changeLogin a {
+    color: #333;
+    font-size: 14px
+}
+
+.loginBox .dTime {
+    width: 120px;
+    background: 0 0;
+    border: none;
+    position: absolute;
+    line-height: 30px;
+    right: 0;
+    top: 0;
+    font-size: 13px;
+    text-align: center
+}
+
+.loginBox .dTime span {
+    color: red;
+    margin-right: 5px
+}
+
+.footer {
+    width: 100%;
+    overflow: hidden;
+    height: 110px;
+    bottom: 0;
+    z-index: -1
+}
+
+
+/*.footer img {
+    width: auto;
+    display: block;
+    right: 0;
+    height: 113px;
+    background: red;
+    position: absolute;
+    top: 0;
+    animation: mymove 250s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    -webkit-animation: mymove 250s infinite;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear
+}*/
+
+@keyframes mymove {
+    from {
+        right: 0
+    }
+    to {
+        right: -2500px
+    }
+}
+
+@-webkit-keyframes mymove {
+    from {
+        right: 0
+    }
+    to {
+        right: -2500px
+    }
+}
+
+.fixed {
+    position: absolute;
+}
+
+
+/*底部滚动*/
+
+.building01,
+.building02 {
+    position: absolute;
+    width: 1000px;
+    height: 110px;
+}
+
+.building01 {
+    -webkit-animation: building01 15s linear .1s infinite;
+    animation: building01 15s linear .1s infinite;
+}
+
+.building02 {
+    -webkit-animation: building02 15s linear .1s infinite;
+    animation: building02 15s linear .1s infinite;
+}
+
+@-webkit-keyframes building01 {
+    from {
+        right: 0
+    }
+    to {
+        right: -100%;
+    }
+}
+
+@keyframes building01 {
+    from {
+        right: 0
+    }
+    to {
+        right: -100%;
+    }
+}
+
+@-webkit-keyframes building02 {
+    from {
+        right: 100%
+    }
+    to {
+        right: 0;
+    }
+}
+
+@keyframes building02 {
+    from {
+        right: 100%
+    }
+    to {
+        right: 0;
+    }
+}

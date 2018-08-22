@@ -1,0 +1,13 @@
+﻿/*add by tianhaiting 2014-6-18*/
+.col-lg-0-96, .col-lg-1-44,.col-sm-1-5 {position:relative;min-height:1px;padding-left:15px; float:left;}
+.col-lg-0-96 { width:8%; }
+.col-lg-1-44 { width:12%; }
+.col-sm-1-5 { width:10%; }
+.control-label { padding:7px 0 0 0; text-align:right; }
+.control-span-l { padding:7px 0 0 15px; text-align:left; }
+.btn-margin-l-01 { margin:0 0 0 45px; }
+.table th, .table td { text-align:center; }
+.title_font_size { font-size:16px; }
+.form-horizontal .title_border_bottom { border-bottom:1px dashed #E5E5E5;margin-left:0px;margin-right:0px; }
+.sel_margin_bottom { margin:0 0 15px 0; overflow:hidden; }
+.spreadGroup { width:480px;height:auto;overflow:hidden; }
