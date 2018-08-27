@@ -10,8 +10,8 @@
     <!-- 当启动webapp功能时，显示手机信号、时间、电池的顶部导航栏的颜色。默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
     <meta name="format-detection" content="telephone=no, email=no" />
     <title>支付结果_会唐网</title>
-    <link rel="stylesheet" href="/eventown/css/iconfont.css" />
-    <link rel="stylesheet" href="/eventown/css/base.css" />
+    <link rel="stylesheet" href="/css/iconfont.css" />
+    <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/public/hotel/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="/public/hotel/css/hotel-common.css" />
     <link rel="stylesheet" href="/public/hotel/css/pay_results.css" />
