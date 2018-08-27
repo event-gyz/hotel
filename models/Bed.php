@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "bed".
  *
  * @property integer $id
+ * @property string $name
  * @property string $bed_name
  * @property integer $breakfast
  * @property string $price
@@ -29,8 +30,8 @@ class Bed extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['bed_name', 'price'], 'required'],
-            [['breakfast'], 'integer'],
+            [['bed_name', 'price','name'], 'required'],
+            [['breakfast','room_id'], 'integer'],
             [['create_time'], 'safe'],
             [['bed_name', 'price'], 'string', 'max' => 20],
         ];
@@ -43,6 +44,7 @@ class Bed extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'name' => '名称',
             'bed_name' => '床型名称',
             'breakfast' => '早餐情况',
             'price' => '价格',

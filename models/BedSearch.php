@@ -19,7 +19,7 @@ class BedSearch extends Bed
     {
         return [
             [['id', 'breakfast'], 'integer'],
-            [['bed_name', 'price', 'create_time'], 'safe'],
+            [['name','bed_name', 'price', 'create_time'], 'safe'],
         ];
     }
 

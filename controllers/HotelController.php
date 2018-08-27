@@ -8,6 +8,8 @@ use app\models\HotelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Img;
+use yii\web\UploadedFile;
 
 /**
  * HotelController implements the CRUD actions for Hotel model.
@@ -23,7 +25,7 @@ class HotelController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['POST','GET'],
                 ],
             ],
         ];
@@ -64,8 +66,17 @@ class HotelController extends Controller
     public function actionCreate()
     {
         $model = new Hotel();
+//        print_r(Yii::$app->request->post());exit;
+        if ($model->load(Yii::$app->request->post())) {
+            $imageUploadFile =   UploadedFile::getInstance($model,'img');
+//            echo '<pre>';
+//            print_r($_FILES);exit;
+            if($imageUploadFile != null ){
+                $saveUrl = $this->qiniu($imageUploadFile);
+                $model->img = $saveUrl;
+            }
+            $model->save();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -73,7 +84,36 @@ class HotelController extends Controller
             ]);
         }
     }
-
+    public function qiniu($imageUploadFile){
+        $typeUrl = '/uploads/';
+        $saveUrl = $this->saveImage($imageUploadFile, '', '', $typeUrl);
+        return $saveUrl;
+    }
+    public function saveImage($imageUploadInstance, $width, $height, $type)
+    {
+        if ($imageUploadInstance == null)
+        {
+            return null;
+        }
+        $imageFileExt = strtolower($imageUploadInstance->getExtension());
+        $save_path    = Yii::$app->getBasePath().'/web'.$type;
+        if (!file_exists($save_path))
+        {
+            mkdir($save_path, 0777, true);
+        }
+        $ymd = date("Y/md");
+        $save_path .= $ymd . '/';
+        if (!file_exists($save_path))
+        {
+            mkdir($save_path, 0777, true);
+        }
+        $img_prefix    = date("YmdHis") . '_' . rand(10000, 99999);
+        $imageFileName = $img_prefix . '.' . $imageFileExt;
+        $save_path .= $imageFileName;
+        $imageUploadInstance->saveAs($save_path);
+        //$obj = Image::thumbnail($save_path, $width, $height)->save($save_path);
+        return  $type.$ymd . '/'. $imageFileName;
+    }
     /**
      * Updates an existing Hotel model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -84,7 +124,18 @@ class HotelController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $data = Yii::$app->request->post()['Hotel'];
+//            print_r($data);exit;
+            $imageUploadFile =   UploadedFile::getInstance($model,'img');
+            if($imageUploadFile != null ){
+                $saveUrl = $this->qiniu($imageUploadFile);
+                $model->img = $saveUrl;
+            }
+            $model->hotel_name = $data['hotel_name'];
+            $model->hotel_address = $data['hotel_address'];
+            $model->find_time = $data['find_time'];
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

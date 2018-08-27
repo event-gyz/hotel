@@ -23,6 +23,9 @@ use Yii;
  * @property string $total_price
  * @property string $hotel_id
  * @property string $room_id
+ * @property string $bed_id
+ * @property integer $num
+ * @property integer $nights
  * @property string $create_time
  */
 class Order extends \yii\db\ActiveRecord
@@ -41,10 +44,10 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id'], 'required'],
-            [['id', 'is_invoice', 'invoice_type'], 'integer'],
+            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id','bed_id'], 'required'],
+            [['is_invoice', 'invoice_type'], 'integer'],
             [['check_in_time', 'check_out_time', 'create_time'], 'safe'],
-            [['name', 'content_name', 'content_phone', 'email', 'invoice_title', 'invoice_address', 'invoice_name', 'hotel_id', 'room_id'], 'string', 'max' => 255],
+            [['name', 'content_name', 'content_phone', 'email', 'invoice_title', 'invoice_address', 'invoice_name'], 'string', 'max' => 255],
             [['invoice_phone'], 'string', 'max' => 12],
             [['total_price'], 'string', 'max' => 20],
         ];

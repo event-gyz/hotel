@@ -30,8 +30,8 @@ class Hotel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'hotel_name', 'find_time', 'img'], 'required'],
-            [['id', 'find_time'], 'integer'],
+            [['hotel_name', 'find_time', 'img'], 'required'],
+            [['find_time'], 'integer'],
             [['img'], 'string'],
             [['create_time'], 'safe'],
             [['hotel_name'], 'string', 'max' => 50],

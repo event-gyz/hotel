@@ -22,7 +22,8 @@
         "phpoffice/phpexcel": "^1.8",
         "kartik-v/yii2-widget-select2": "@dev",
         "kartik-v/yii2-widget-fileinput": "@dev",
-        "mpdf/mpdf":"*"
+        "mpdf/mpdf":"*",
+        "bailangzhan/yii2-webuploader": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
