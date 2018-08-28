@@ -56,6 +56,9 @@ class IndexController extends Controller
      */
     public function actionIndex()
     {
+        if(!isset($_SESSION['user']['open_id'])){
+            header("Location:/index/get-base");
+        }
         $model = new Hotel();
         $hotel_list = $model->find()->asArray()->all();
         foreach($hotel_list as &$value){
@@ -181,22 +184,31 @@ class IndexController extends Controller
         return $res;
     }
 
+    public function actionGetBase(){
+        //1.获取到code
+        $appid="wx2373990e5a3c49dc";//这里的appid是假的演示用
+        $redirect_uri=urlencode('https://'.$_SERVER['HTTP_HOST']."/index/get-openid");//这里的地址需要http://
+        $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+        header('location:'.$url);
+    }
+
     public function actionGetOpenid()
     {
         $code = Yii::$app->request->get('code');
         $appid = "wx2373990e5a3c49dc";
         $secret = "f31d18945e90ad626c249089f6c2b07d";
-        if(empty($code)){
-            $REDIRECT_URI='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-            $scope='snsapi_userinfo';
-            $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=wx'.'#wechat_redirect';
-            header("Location:".$url);
-        }
+//        if(empty($code)){
+//            $REDIRECT_URI='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+//            $scope='snsapi_userinfo';
+//            $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=wx'.'#wechat_redirect';
+//            header("Location:".$url);
+//        }
 
         $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
-        print_r($json_obj);exit;
+        $_SESSION['user']['open_id'] = $json_obj['openid'];
+        header("Location:/index");
         //根据openid和access_token查询用户信息
         $access_token = $json_obj['access_token'];
         $openid = $json_obj['openid'];
@@ -204,16 +216,18 @@ class IndexController extends Controller
         $res = file_get_contents($get_user_info_url);
         //解析json
         $user_obj = json_decode($res,true);
-        if(!isset($user_obj['openid'])){
-            $this->_return['errorno'] = $user_obj['errcode'];
-            $this->_return['msg']     = '请求失败';
-            $this->_return['data']    = $user_obj['errmsg'];
-        }else{
-            $this->_return['errorno'] = 0;
-            $this->_return['msg']     = '请求成功';
-            $this->_return['data']    = $user_obj['openid'];
-        }
-        $this->response($this->_return);
+        $_SESSION['user']['open_id'] = $user_obj['openid'];
+        header("Location:/index");
+//        if(!isset($user_obj['openid'])){
+//            $this->_return['errorno'] = $user_obj['errcode'];
+//            $this->_return['msg']     = '请求失败';
+//            $this->_return['data']    = $user_obj['errmsg'];
+//        }else{
+//            $this->_return['errorno'] = 0;
+//            $this->_return['msg']     = '请求成功';
+//            $this->_return['data']    = $user_obj['openid'];
+//        }
+//        $this->response($this->_return);
     }
     public function getWxSession($appid,$secret,$code,$grant_type = 'authorization_code'){
         $req_url =
