@@ -142,7 +142,7 @@ class IndexController extends Controller
             if (empty($data['total_price'])) {
                 throw new Exception('价格不能为空', -3);
             }
-
+            unset($data['_csrf']);
             $db = \Yii::$app->db->createCommand(); $db->insert('order' , $data )->execute();
 //            $model->save();
             $transaction->commit();
