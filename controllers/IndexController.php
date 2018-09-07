@@ -63,7 +63,7 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $session = Yii::$app->session;
-        if($_GET['openid']){
+        if(!empty($_GET['openid'])){
             $session['open_id'] = $_GET['openid'];
         }
         if(!isset($session['open_id'])){
