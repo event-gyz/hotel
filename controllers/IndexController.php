@@ -63,6 +63,9 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $session = Yii::$app->session;
+        if($_GET['openid']){
+            $session['open_id'] = $_GET['openid'];
+        }
         if(!isset($session['open_id'])){
             header("Location:/index/get-openid");
         }
@@ -213,8 +216,7 @@ class IndexController extends Controller
         $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
-        $session = Yii::$app->session;
-        $session['open_id'] = $json_obj['openid'];
+        $openid = $json_obj['openid'];
 //        print_r($session['open_id']);exit;
         //根据openid和access_token查询用户信息
 //        $access_token = $json_obj['access_token'];
@@ -223,7 +225,7 @@ class IndexController extends Controller
 //        $res = file_get_contents($get_user_info_url);
 //        //解析json
 //        $user_obj = json_decode($res,true);
-        header("Location:/index");
+        header("Location:/index?openid=$openid");
     }
     public function getWxSession($appid,$secret,$code,$grant_type = 'authorization_code'){
         $req_url =
