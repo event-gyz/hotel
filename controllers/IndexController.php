@@ -128,23 +128,23 @@ class IndexController extends Controller
         $data['total_price'] = $data['nights'] * $data['num'] * $bed['price'];
         $transaction = Yii::$app->db->beginTransaction();
         try {
-            $modelData['Order'] = $data;
+//            $modelData['Order'] = $data;
 
-            $model->load($modelData);
-            if (empty($model->check_in_time)) {
+//            $model->load($modelData);
+            if (empty($data['check_in_time'])) {
                 throw new Exception('入住时间不能为空', -1);
             }
 
-            if (empty($model->check_out_time)) {
+            if (empty($data['check_out_time'])) {
                 throw new Exception('离店时间不能为空', -2);
             }
 
-            if (empty($model->total_price)) {
+            if (empty($data['total_price'])) {
                 throw new Exception('价格不能为空', -3);
             }
 
-
-            $model->save();
+            $db = \Yii::$app->db->createCommand(); $db->insert('order' , $data )->execute();
+//            $model->save();
             $transaction->commit();
             $this->_return['errorno'] = 0;
             $this->_return['msg']     = '请求成功';
