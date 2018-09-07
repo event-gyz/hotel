@@ -63,9 +63,7 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $session = Yii::$app->session;
-        $session['user'] = 123123132;
-        print_r($session);exit;
-        if(!isset($session['user']['open_id'])){
+        if(!isset($session['open_id'])){
             header("Location:/index/get-openid");
         }
         $model = new Hotel();
@@ -216,8 +214,8 @@ class IndexController extends Controller
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
         $session = Yii::$app->session;
-        $session['user']['open_id'] = $json_obj['openid'];
-//        print_r($session['user']['open_id']);exit;
+        $session['open_id'] = $json_obj['openid'];
+//        print_r($session['open_id']);exit;
         //根据openid和access_token查询用户信息
 //        $access_token = $json_obj['access_token'];
 //        $openid = $json_obj['openid'];
