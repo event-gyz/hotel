@@ -25,6 +25,10 @@ use app\models\Wx;
 class IndexController extends Controller
 {
     public $layout=false;
+
+
+    public $appId = 'wx3050c26206b465f3';
+    public $appSecret = '90c13c1da9fef4b831f17d7b19b4df12';
     /**
      * @inheritdoc
      */
@@ -57,7 +61,7 @@ class IndexController extends Controller
     public function actionIndex()
     {
         if(!isset($_SESSION['user']['open_id'])){
-            header("Location:/index/get-base");
+            header("Location:/index/get-openid");
         }
         $model = new Hotel();
         $hotel_list = $model->find()->asArray()->all();
@@ -149,13 +153,13 @@ class IndexController extends Controller
     }
     public function wxpay($openid,$body,$money,$order_id){
         $obj = array();
-        $obj['appid']           = 'wx3b6f0bfc1a3f213c'; //小程序appid
-        $obj['mch_id']         	= '1450522602'; //商户号
+        $obj['appid']           = $this->appId; //小程序appid
+        $obj['mch_id']         	= '1513357261'; //商户号
         $obj['body']        	= $body;
         $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
         $obj['total_fee']       = $money*100;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
-        $obj['notify_url']      = 'https://newebooking.eventown.com/api/order/changeOrderPayStatus?order_id='.$order_id;
+        $obj['notify_url']      = 'https://hotel.com/api/order/changeOrderPayStatus?order_id='.$order_id;
 
         $obj['trade_type']      = "JSAPI";  //小程序取值：JSAPI，
         $obj['openid']          = $openid;
@@ -167,7 +171,7 @@ class IndexController extends Controller
         file_put_contents('./php.log', json_encode($res). "\r\n", FILE_APPEND);
         $prepay_id = $res["prepay_id"];
         $obj2 = array();
-        $obj2['appId']           = 'wx3b6f0bfc1a3f213c';//小程序appid
+        $obj2['appId']           = $this->appId;//小程序appid
         $obj2['package']        	= "prepay_id=".$prepay_id;
         $data = $weAppPay->wxpaysign($obj2);
         $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
@@ -184,31 +188,29 @@ class IndexController extends Controller
         return $res;
     }
 
-    public function actionGetBase(){
-        //1.获取到code
-        $appid="wx2373990e5a3c49dc";//这里的appid是假的演示用
-        $redirect_uri=urlencode('https://'.$_SERVER['HTTP_HOST']."/index/get-openid");//这里的地址需要http://
-        $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-        header('location:'.$url);
-    }
+//    public function actionGetBase(){
+//        //1.获取到code
+//        $redirect_uri=urlencode('http://'.$_SERVER['HTTP_HOST']."/index/get-openid");//这里的地址需要http://
+//        $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+//        header('location:'.$url);
+//    }
 
     public function actionGetOpenid()
     {
         $code = Yii::$app->request->get('code');
-        $appid = "wx2373990e5a3c49dc";
-        $secret = "f31d18945e90ad626c249089f6c2b07d";
-//        if(empty($code)){
-//            $REDIRECT_URI='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-//            $scope='snsapi_userinfo';
-//            $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=wx'.'#wechat_redirect';
-//            header("Location:".$url);
-//        }
+        $appid = $this->appId;
+        $secret = $this->appSecret;
+        if(empty($code)){
+            $REDIRECT_URI='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            $scope='snsapi_userinfo';
+            $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=wx'.'#wechat_redirect';
+            header("Location:".$url);
+        }
 
         $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
         $_SESSION['user']['open_id'] = $json_obj['openid'];
-        header("Location:/index");
         //根据openid和access_token查询用户信息
         $access_token = $json_obj['access_token'];
         $openid = $json_obj['openid'];
