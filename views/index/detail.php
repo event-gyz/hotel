@@ -48,7 +48,7 @@
             border: 1px solid #e5e5e5;
             padding: 2px 8px;
             line-height: 20px;
-            border-radius: .2rem;
+            border-radius: .8rem;
             background-color: #fff;
         }
 
@@ -76,7 +76,7 @@
             position: absolute;
             left: 0;
             margin: 0 auto;
-            width: 50%;
+            width: 40%;
             font-size: 16px;
             color: #4189ff;
             text-align: center;
@@ -87,7 +87,7 @@
             position: absolute;
             right: 0;
             margin: auto 0;
-            width: 50%;
+            width: 40%;
             font-size: 16px;
             color: #4189ff;
             text-align: center;
