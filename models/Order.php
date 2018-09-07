@@ -44,7 +44,7 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id','bed_id'], 'required'],
+            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id','bed_id','create_time'], 'required'],
             [['name', 'content_name', 'content_phone'], 'string', 'max' => 255],
             [['total_price'], 'string', 'max' => 20],
         ];
