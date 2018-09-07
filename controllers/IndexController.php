@@ -225,7 +225,11 @@ class IndexController extends Controller
 //        $res = file_get_contents($get_user_info_url);
 //        //解析json
 //        $user_obj = json_decode($res,true);
-        header("Location:/index?openid=$openid");
+        if(!empty($openid)){
+            header("Location:/index?openid=$openid");
+        }else{
+            print_r($json_obj);exit;
+        }
     }
     public function getWxSession($appid,$secret,$code,$grant_type = 'authorization_code'){
         $req_url =
