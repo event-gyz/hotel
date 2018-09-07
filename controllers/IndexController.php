@@ -63,6 +63,8 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $session = Yii::$app->session;
+        $session['user'] = 123123132;
+        print_r($session);exit;
         if(!isset($session['user']['open_id'])){
             header("Location:/index/get-openid");
         }
@@ -215,7 +217,7 @@ class IndexController extends Controller
         $json_obj = json_decode($res,true);
         $session = Yii::$app->session;
         $session['user']['open_id'] = $json_obj['openid'];
-        print_r($session['user']['open_id']);exit;
+//        print_r($session['user']['open_id']);exit;
         //根据openid和access_token查询用户信息
 //        $access_token = $json_obj['access_token'];
 //        $openid = $json_obj['openid'];
@@ -223,7 +225,6 @@ class IndexController extends Controller
 //        $res = file_get_contents($get_user_info_url);
 //        //解析json
 //        $user_obj = json_decode($res,true);
-
         header("Location:/index");
     }
     public function getWxSession($appid,$secret,$code,$grant_type = 'authorization_code'){
