@@ -120,7 +120,7 @@ class IndexController extends Controller
         $bedModel = new Bed();
         $data = Yii::$app->request->post();
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
-
+        $data['create_time'] = date('Y-m-d H:i:s',time());
         $data['room_id'] = $bed['room_id'];
         $data['nights'] = (strtotime($data['check_out_time'])-strtotime($data['check_in_time']))/86400;
         $data['total_price'] = $data['nights'] * $data['num'] * $bed['price'];
