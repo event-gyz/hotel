@@ -45,10 +45,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id','bed_id'], 'required'],
-            [['is_invoice', 'invoice_type'], 'integer'],
-            [['check_in_time', 'check_out_time', 'create_time'], 'safe'],
-            [['name', 'content_name', 'content_phone', 'email', 'invoice_title', 'invoice_address', 'invoice_name'], 'string', 'max' => 255],
-            [['invoice_phone'], 'string', 'max' => 12],
+            [['name', 'content_name', 'content_phone'], 'string', 'max' => 255],
             [['total_price'], 'string', 'max' => 20],
         ];
     }
