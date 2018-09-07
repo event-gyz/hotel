@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /**
  * Created by PhpStorm.
  * User: guanyazhuo
@@ -7,7 +7,7 @@ session_start();
  * Time: 下午2:50
  */
 namespace app\controllers;
-
+session_start();
 use Yii;
 use app\models\Room;
 use app\models\Bed;
