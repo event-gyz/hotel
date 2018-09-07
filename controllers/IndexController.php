@@ -7,8 +7,9 @@
  * Time: 下午2:50
  */
 namespace app\controllers;
-session_start();
+
 use Yii;
+use  yii\web\Session;
 use app\models\Room;
 use app\models\Bed;
 use app\models\Hotel;
@@ -61,7 +62,8 @@ class IndexController extends Controller
      */
     public function actionIndex()
     {
-        if(!isset($_SESSION['user']['open_id'])){
+        $session = Yii::$app->session;
+        if(!isset($session['user']['open_id'])){
             header("Location:/index/get-openid");
         }
         $model = new Hotel();
@@ -211,27 +213,18 @@ class IndexController extends Controller
         $get_token_url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$appid.'&secret='.$secret.'&code='.$code.'&grant_type=authorization_code';
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
-        $_SESSION['user']['open_id'] = $json_obj['openid'];
-        print_r($_SESSION['user']['open_id']);exit;
+        $session = Yii::$app->session;
+        $session['user']['open_id'] = $json_obj['openid'];
+        print_r($session['user']['open_id']);exit;
         //根据openid和access_token查询用户信息
-        $access_token = $json_obj['access_token'];
-        $openid = $json_obj['openid'];
-        $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
-        $res = file_get_contents($get_user_info_url);
-        //解析json
-        $user_obj = json_decode($res,true);
-        $_SESSION['user']['open_id'] = $user_obj['openid'];
+//        $access_token = $json_obj['access_token'];
+//        $openid = $json_obj['openid'];
+//        $get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
+//        $res = file_get_contents($get_user_info_url);
+//        //解析json
+//        $user_obj = json_decode($res,true);
+
         header("Location:/index");
-//        if(!isset($user_obj['openid'])){
-//            $this->_return['errorno'] = $user_obj['errcode'];
-//            $this->_return['msg']     = '请求失败';
-//            $this->_return['data']    = $user_obj['errmsg'];
-//        }else{
-//            $this->_return['errorno'] = 0;
-//            $this->_return['msg']     = '请求成功';
-//            $this->_return['data']    = $user_obj['openid'];
-//        }
-//        $this->response($this->_return);
     }
     public function getWxSession($appid,$secret,$code,$grant_type = 'authorization_code'){
         $req_url =
