@@ -78,6 +78,7 @@
                         <input type="hidden" value="<?=$_GET['endDate']?>" name="check_out_time">
                         <input type="hidden" value="<?=$bed_info['id']?>" name="bed_id">
                         <input type="hidden" value="<?=$bed_info['room_id']?>" name="room_id">
+                        <input type="hidden" value="<?=$hotel_info['id']?>" name="hotel_id">
                     </table>
                 </form>
             </div>
