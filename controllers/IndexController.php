@@ -142,7 +142,7 @@ class IndexController extends Controller
             }
 
 
-            $model->save();
+            print_r($model->save());exit;
             $transaction->commit();
             $this->_return['errorno'] = 0;
             $this->_return['msg']     = '请求成功';
