@@ -212,6 +212,7 @@ class IndexController extends Controller
         $res = file_get_contents($get_token_url);
         $json_obj = json_decode($res,true);
         $_SESSION['user']['open_id'] = $json_obj['openid'];
+        print_r($_SESSION['user']['open_id']);exit;
         //根据openid和access_token查询用户信息
         $access_token = $json_obj['access_token'];
         $openid = $json_obj['openid'];
