@@ -44,7 +44,7 @@
             </div>
             <div class="pay-con-box">
                 <form id="orderForm" method="post" enctype="multipart/form-data" name="orderForm">
-                    <input type="hidden" value="<?php echo Yii::$app->request->csrfToken; ?>" name="_csrf">
+<!--                    <input type="hidden" value="--><?php //echo Yii::$app->request->csrfToken; ?><!--" name="_csrf">-->
                     <table border="0" cellspacing="0">
                         <tr>
                             <td class="left">房间数</td>
