@@ -146,7 +146,9 @@ class IndexController extends Controller
             $transaction->commit();
             $this->_return['errorno'] = 0;
             $this->_return['msg']     = '请求成功';
-            $this->_return['data'] = $this->wxpay($model->open_id,$data['body'],$model->settlement_order_amount,$model->id);
+            $session = Yii::$app->session;
+            $open_id = $session['open_id'];
+            $this->_return['data'] = $this->wxpay($open_id,'房费',$model->total_price,$model->id);
             $this->_return['data']['order_id'] = $model->id;
             $this->response($this->_return);
         } catch (Exception $e) {

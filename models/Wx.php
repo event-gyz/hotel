@@ -11,12 +11,12 @@ class Wx
     {
 
     }
-
+    public $key = 'r5cq7Rbsro3geQbTRtyRNoWddgBsQkoW';
     function wxpay($url, $obj, $cert = false)
     {
         $obj['nonce_str'] = $this->create_noncestr();
         $stringA = $this->formatQueryParaMap($obj, false);
-        $stringSignTemp = $stringA . "&key=" . '8gay3i7el1owp1glu8tn27kzdzd04op2';
+        $stringSignTemp = $stringA . "&key=" . $this->key;
         $sign = strtoupper(md5($stringSignTemp));
         $obj['sign'] = $sign;
         file_put_contents('./php.log', json_encode($obj). "\r\n", FILE_APPEND);
@@ -31,7 +31,7 @@ class Wx
         $obj['nonceStr'] = $this->create_noncestr();
         $obj['signType'] = "MD5";
         $stringA = $this->formatQueryParaMap($obj, false);
-        $stringSignTemp = $stringA . "&key=" . '8gay3i7el1owp1glu8tn27kzdzd04op2';
+        $stringSignTemp = $stringA . "&key=" . $this->key;
         $obj['paySign'] = strtoupper(md5($stringSignTemp));
         return $obj;
     }
