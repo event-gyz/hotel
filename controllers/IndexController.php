@@ -162,7 +162,7 @@ class IndexController extends Controller
         $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
         $obj['total_fee']       = $money*100;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
-        $obj['notify_url']      = 'https://hotel.com/api/order/changeOrderPayStatus?order_id='.$order_id;
+        $obj['notify_url']      = 'http://hotel.com/api/order/changeOrderPayStatus?order_id='.$order_id;
 
         $obj['trade_type']      = "JSAPI";  //小程序取值：JSAPI，
         $obj['openid']          = $openid;
@@ -204,7 +204,7 @@ class IndexController extends Controller
         $appid = $this->appId;
         $secret = $this->appSecret;
         if(empty($code)){
-            $REDIRECT_URI='https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+            $REDIRECT_URI='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
             $scope='snsapi_userinfo';
             $url='https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$appid.'&redirect_uri='.urlencode($REDIRECT_URI).'&response_type=code&scope='.$scope.'&state=wx'.'#wechat_redirect';
             header("Location:".$url);
