@@ -77,7 +77,7 @@
             position: absolute;
             left: 0;
             margin: 0 auto;
-            width: 50%;
+            width: 40%;
             font-size: 16px;
             color: #4189ff;
             text-align: center;
@@ -88,7 +88,7 @@
             position: absolute;
             right: 0;
             margin: auto 0;
-            width: 50%;
+            width: 40%;
             font-size: 16px;
             color: #4189ff;
             text-align: center;
