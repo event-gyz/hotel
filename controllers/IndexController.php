@@ -151,7 +151,7 @@ class IndexController extends Controller
             $this->_return['msg']     = '请求成功';
             $session = Yii::$app->session;
             $open_id = $session['open_id'];
-            $this->_return['data'] = $this->wxpay($open_id,'房费',$model->total_price,$id);
+            $this->_return['data'] = $this->wxpay($open_id,'房费',$data['total_price'],$id);
             $this->_return['data']['order_id'] = $id;
             $this->response($this->_return);
         } catch (Exception $e) {
@@ -170,7 +170,7 @@ class IndexController extends Controller
         $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
         $obj['total_fee']       = $money*100;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
-        $obj['notify_url']      = 'http://hotel.com/api/order/changeOrderPayStatus?order_id='.$order_id;
+        $obj['notify_url']      = 'http://fang.xxxxzzzz.xyz/index/changeOrderPayStatus?order_id='.$order_id;
 
         $obj['trade_type']      = "JSAPI";  //小程序取值：JSAPI，
         $obj['openid']          = $openid;
