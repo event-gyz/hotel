@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="pay-info">
-            <p class="center callpay">立即支付</p>
+            <p class="center payMoney">立即支付</p>
         </div>
     </div>
 </div>
@@ -81,7 +81,7 @@
         );
     }
 
-    $('.callpay').click(function () {
+    $('.payMoney').click(function () {
         if(!wxJsApiData.resultCode){
             alert(wxJsApiData.resultType+","+wxJsApiData.resultMsg+"!");
             return false;
