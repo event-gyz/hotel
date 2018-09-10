@@ -194,14 +194,14 @@ class IndexController extends Controller
         $weAppPay = new Wx();
         $data = $weAppPay->wxpay($url, $obj, false);
         $res = $weAppPay->xmlToArray($data);
-        file_put_contents('./php.log', json_encode($res). "\r\n", FILE_APPEND);
-        return $res;
-//        $prepay_id = $res["prepay_id"];
-//        $obj2 = array();
-//        $obj2['appId']           = $this->appId;//小程序appid
-//        $obj2['package']        	= "prepay_id=".$prepay_id;
-//        $data = $weAppPay->wxpaysign($obj2);
-//        $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
+//        file_put_contents('./php.log', json_encode($res). "\r\n", FILE_APPEND);
+//        return $res;
+        $prepay_id = $res["prepay_id"];
+        $obj2 = array();
+        $obj2['appId']           = $this->appId;//小程序appid
+        $obj2['package']        	= "prepay_id=".$prepay_id;
+        $data = $weAppPay->wxpaysign($obj2);
+        $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
         return $data;
     }
     protected function getRoom($hotel_id){
