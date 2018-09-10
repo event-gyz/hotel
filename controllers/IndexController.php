@@ -165,9 +165,9 @@ class IndexController extends Controller
             $id = \Yii::$app->db->getLastInsertID();
 //            $model->save();
             $transaction->commit();
-            $this->_return['errorno'] = 0;
+            $this->_return['errorno'] = 1;
             $this->_return['msg']     = '请求成功';
-            $this->_return['data']['order_id'] = $id;
+            $this->_return['data']    = $id;
             $this->response($this->_return);
         } catch (Exception $e) {
             $transaction->rollBack();
@@ -215,12 +215,6 @@ class IndexController extends Controller
         return $res;
     }
 
-//    public function actionGetBase(){
-//        //1.获取到code
-//        $redirect_uri=urlencode('http://'.$_SERVER['HTTP_HOST']."/index/get-openid");//这里的地址需要http://
-//        $url="https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->appId."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-//        header('location:'.$url);
-//    }
 
     public function actionGetOpenid()
     {
