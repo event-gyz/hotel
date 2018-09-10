@@ -144,14 +144,15 @@ class IndexController extends Controller
             }
             unset($data['_csrf']);
             $db = \Yii::$app->db->createCommand(); $db->insert('order' , $data )->execute();
+            $id = \Yii::$app->db->getLastInsertID();
 //            $model->save();
             $transaction->commit();
             $this->_return['errorno'] = 0;
             $this->_return['msg']     = '请求成功';
             $session = Yii::$app->session;
             $open_id = $session['open_id'];
-            $this->_return['data'] = $this->wxpay($open_id,'房费',$model->total_price,$model->id);
-            $this->_return['data']['order_id'] = $model->id;
+            $this->_return['data'] = $this->wxpay($open_id,'房费',$model->total_price,$id);
+            $this->_return['data']['order_id'] = $id;
             $this->response($this->_return);
         } catch (Exception $e) {
             $transaction->rollBack();
