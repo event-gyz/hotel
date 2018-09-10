@@ -66,35 +66,28 @@
 </div>
 <script>
 
-    var wxJsApiData = <?=$wxJsApiData?>;
-    function onBridgeReady()
+    function jsApiCall()
     {
         WeixinJSBridge.invoke(
             'getBrandWCPayRequest',
-            $.parseJSON(wxJsApiData.resultData),
+            <?php echo $wxJsApiData; ?>,
             function(res){
-                if(res.err_msg == "get_brand_wcpay_request:ok" ){
-                    window.location.href="/wxpay/paysuccess/"+<?=$order_info['id']?>;
-                }
-
+                WeixinJSBridge.log(res.err_msg);
+                alert(res.err_code+res.err_desc+res.err_msg);
             }
         );
     }
 
     $('.payMoney').click(function () {
-        if(!wxJsApiData.resultCode){
-            alert(wxJsApiData.resultType+","+wxJsApiData.resultMsg+"!");
-            return false;
-        }
         if (typeof WeixinJSBridge == "undefined"){
             if( document.addEventListener ){
-                document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
             }else if (document.attachEvent){
-                document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
-                document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
             }
         }else{
-            onBridgeReady();
+            jsApiCall();
         }
     })
 </script>
