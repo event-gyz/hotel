@@ -115,6 +115,24 @@ class IndexController extends Controller
             'room_info' => $room_info,
         ]);
     }
+
+    public function actionPayPage(){
+        $model = new Hotel();
+        $orderModel = new Order();
+        $wxJsApiData = '';
+        $orderId = Yii::$app->request->get('orderId');
+        $orderInfo = $orderModel->find()->where(['id'=>$orderId])->asArray()->one();
+        $hotelInfo = $model->find()->where(['id'=>$orderInfo['hotel_id']])->asArray()->one();
+        $session = Yii::$app->session;
+        $open_id = $session['open_id'];
+        $wxJsApiData = $this->wxpay($open_id,'房费',$orderInfo['total_price'],$orderInfo['id']);
+        return $this->render('paypage', [
+            'hotel_info' => $hotelInfo,
+            'order_info' =>$orderInfo,
+            'wxJsApiData'=> json_encode($wxJsApiData, JSON_UNESCAPED_UNICODE),
+
+        ]);
+    }
     public function actionPayOrder(){
         $model = new Order();
         $bedModel = new Bed();
@@ -149,9 +167,6 @@ class IndexController extends Controller
             $transaction->commit();
             $this->_return['errorno'] = 0;
             $this->_return['msg']     = '请求成功';
-            $session = Yii::$app->session;
-            $open_id = $session['open_id'];
-            $this->_return['data'] = $this->wxpay($open_id,'房费',$data['total_price'],$id);
             $this->_return['data']['order_id'] = $id;
             $this->response($this->_return);
         } catch (Exception $e) {
@@ -180,12 +195,13 @@ class IndexController extends Controller
         $data = $weAppPay->wxpay($url, $obj, false);
         $res = $weAppPay->xmlToArray($data);
         file_put_contents('./php.log', json_encode($res). "\r\n", FILE_APPEND);
-        $prepay_id = $res["prepay_id"];
-        $obj2 = array();
-        $obj2['appId']           = $this->appId;//小程序appid
-        $obj2['package']        	= "prepay_id=".$prepay_id;
-        $data = $weAppPay->wxpaysign($obj2);
-        $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
+        return $res;
+//        $prepay_id = $res["prepay_id"];
+//        $obj2 = array();
+//        $obj2['appId']           = $this->appId;//小程序appid
+//        $obj2['package']        	= "prepay_id=".$prepay_id;
+//        $data = $weAppPay->wxpaysign($obj2);
+//        $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
         return $data;
     }
     protected function getRoom($hotel_id){
