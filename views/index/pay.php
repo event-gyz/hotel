@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="pay-con-box">
-                <form id="orderForm" method="post" enctype="multipart/form-data" name="orderForm">
+                <form id="orderForm" method="post" enctype="multipart/form-data" name="orderForm" action="/index/pay-order">
                     <input type="hidden" value="<?php echo Yii::$app->request->csrfToken; ?>" name="_csrf">
                     <table border="0" cellspacing="0">
                         <tr>
@@ -107,25 +107,25 @@
         $('.j-tot-price').text(num * night * price);
     })
 
-    $('.has_buy').click(function () {
-        $('#orderForm').ajaxSubmit(      //ajax方式提交表单
-            {
-                url: '/index/pay-order',
-                type: 'post',
-                dataType: 'json',
-                beforeSubmit: function () {
-                },
-                success: function (data) {
-                    if (data.res == "True" || data.res == true) {
-                        $('.jsrz_main_check').html('您的申请已提交，我们将会在1-2个工作日内进行审核，请耐心等待!');
-                    } else {
-                        alert(data.msg);
-                    }
-                },
-                clearForm: false,//禁止清楚表单
-                resetForm: false //禁止重置表单
-            });
-    })
+//    $('.has_buy').click(function () {
+//        $('#orderForm').ajaxSubmit(      //ajax方式提交表单
+//            {
+//                url: '/index/pay-order',
+//                type: 'post',
+//                dataType: 'json',
+//                beforeSubmit: function () {
+//                },
+//                success: function (data) {
+//                    if (data.res == "True" || data.res == true) {
+//                        $('.jsrz_main_check').html('您的申请已提交，我们将会在1-2个工作日内进行审核，请耐心等待!');
+//                    } else {
+//                        alert(data.msg);
+//                    }
+//                },
+//                clearForm: false,//禁止清楚表单
+//                resetForm: false //禁止重置表单
+//            });
+//    })
 </script>
 </body>
 </html>
