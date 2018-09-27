@@ -72,8 +72,8 @@
             'getBrandWCPayRequest',
             <?php echo $wxJsApiData; ?>,
             function(res){
-                WeixinJSBridge.log(res.err_msg);
-                alert(res.err_code+res.err_desc+res.err_msg);
+//                WeixinJSBridge.log(res.err_msg);
+//                alert(res.err_code+res.err_desc+res.err_msg);
             }
         );
     }
