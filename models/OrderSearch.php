@@ -19,7 +19,7 @@ class OrderSearch extends Order
     {
         return [
             [['id'], 'integer'],
-            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id', 'create_time'], 'safe'],
+            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id','pay_status', 'create_time'], 'safe'],
         ];
     }
 

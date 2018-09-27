@@ -26,6 +26,7 @@ use Yii;
  * @property string $bed_id
  * @property integer $num
  * @property integer $nights
+ * @property integer $pay_status
  * @property string $create_time
  */
 class Order extends \yii\db\ActiveRecord
@@ -66,6 +67,7 @@ class Order extends \yii\db\ActiveRecord
             'hotel_id' => '酒店ID',
             'room_id' => '房型ID',
             'create_time' => '下单时间',
+            'pay_status' => '支付状态',
         ];
     }
 }

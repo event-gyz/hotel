@@ -161,7 +161,8 @@ class IndexController extends Controller
                 throw new Exception('价格不能为空', -3);
             }
             unset($data['_csrf']);
-            $db = \Yii::$app->db->createCommand(); $db->insert('order' , $data )->execute();
+            $db = \Yii::$app->db->createCommand();
+            $db->insert('order' , $data )->execute();
             $id = \Yii::$app->db->getLastInsertID();
 //            $model->save();
             $transaction->commit();
@@ -186,7 +187,7 @@ class IndexController extends Controller
 //        $obj['total_fee']       = $money*100;
         $obj['total_fee']       = 1;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
-        $obj['notify_url']      = 'http://fang.xxxxzzzz.xyz/index/changeOrderPayStatus?order_id='.$order_id;
+        $obj['notify_url']      = 'http://fang.xxxxzzzz.xyz/index/change-status?order_id='.$order_id;
 
         $obj['trade_type']      = "JSAPI";  //小程序取值：JSAPI，
         $obj['openid']          = $openid;
@@ -204,6 +205,12 @@ class IndexController extends Controller
         $data = $weAppPay->wxpaysign($obj2);
         $data = array_merge($data, array("prepay_id"=>$prepay_id, "trade_no"=>$obj['out_trade_no']));
         return $data;
+    }
+
+    public function actionChangeStatus(){
+        $data = Yii::$app->request->get();
+        $order_id = $data['order_id'];
+        Order::updateAll(['pay_status'=>1],['id'=>$order_id]);
     }
     protected function getRoom($hotel_id){
         $room = new Room();

@@ -81,6 +81,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>'total_price'
             ],
             [
+                'label'=>'支付状态',
+                'value'=>
+                    function($model){
+                        switch ($model->pay_status){
+                            case 0:
+                                return '未支付';
+                                break;
+                            case 1:
+                                return '已支付';
+                                break;
+                            default:
+                                return '';
+                        }
+                    },
+            ],
+            [
                 'label'=>'下单时间',
                 'value'=>'create_time'
             ],
