@@ -11,7 +11,7 @@ use Yii;
  * @property string $name
  * @property string $content_name
  * @property string $content_phone
- * @property string $email
+
  * @property integer $is_invoice
  * @property integer $invoice_type
  * @property string $invoice_title
@@ -60,19 +60,12 @@ class Order extends \yii\db\ActiveRecord
             'name' => '入住人姓名',
             'content_name' => '联系人姓名',
             'content_phone' => '联系人电话',
-            'email' => '邮箱',
-            'is_invoice' => '是否需要发票',
-            'invoice_type' => 'Invoice Type',
-            'invoice_title' => 'Invoice Title',
-            'invoice_address' => 'Invoice Address',
-            'invoice_name' => 'Invoice Name',
-            'invoice_phone' => 'Invoice Phone',
             'check_in_time' => '入住时间',
             'check_out_time' => '离店时间',
             'total_price' => '订单金额',
             'hotel_id' => '酒店ID',
             'room_id' => '房型ID',
-            'create_time' => 'Create Time',
+            'create_time' => '下单时间',
         ];
     }
 }

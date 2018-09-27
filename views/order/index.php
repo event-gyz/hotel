@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\OrderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Orders';
+$this->title = '订单管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="order-index">
@@ -16,33 +16,97 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
+<!--        --><?//= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+//            ['class' => 'yii\grid\SerialColumn'],
+            [
+                'label'=>'酒店名称',
+//                'filter' => Html::activeDropDownList(
+//                    $searchModel,
+//                    'gender',
+//                    $searchModel::$hotel_id,['class' => 'form-control']),
+                'value'=>
+                    function($model){
+                        $hotel_id = $model->hotel_id;
+                        $hotelInfo = \app\models\Hotel::find()->where(['id'=>$hotel_id])->asArray()->one();
+                        return $hotelInfo['hotel_name'];
 
-            'id',
+                    },
+            ],
+            [
+                'label'=>'房型名称',
+//                'filter' => Html::activeDropDownList(
+//                    $searchModel,
+//                    'gender',
+//                    $searchModel::$hotel_id,['class' => 'form-control']),
+                'value'=>
+                    function($model){
+                        $room_id = $model->room_id;
+                        $roomInfo = \app\models\Room::find()->where(['id'=>$room_id])->asArray()->one();
+                        return $roomInfo['room_name'];
+                    },
+            ],
+            [
+                'label'=>'床型名称',
+//                'filter' => Html::activeDropDownList(
+//                    $searchModel,
+//                    'gender',
+//                    $searchModel::$hotel_id,['class' => 'form-control']),
+                'value'=>
+                    function($model){
+                        $bed_id = $model->bed_id;
+                        $bedInfo = \app\models\Bed::find()->where(['id'=>$bed_id])->asArray()->one();
+                        return $bedInfo['bed_name'];
+                    },
+
+            ],
+
             'name',
             'content_name',
             'content_phone',
-            'email:email',
-            // 'is_invoice',
-            // 'invoice_type',
-            // 'invoice_title',
-            // 'invoice_address',
-            // 'invoice_name',
-            // 'invoice_phone',
-            // 'check_in_time',
-            // 'check_out_time',
-            // 'total_price',
-            // 'hotel_id',
-            // 'room_id',
-            // 'create_time',
+            [
+                'label'=>'入住时间',
+                'value'=>'check_in_time'
+            ],
+            [
+                'label'=>'离店时间',
+                'value'=>'check_out_time'
+            ],
+            [
+                'label'=>'订单金额',
+                'value'=>'total_price'
+            ],
+            [
+                'label'=>'下单时间',
+                'value'=>'create_time'
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{delete}',
+                'buttons' => [
+                    'view' => function($url, $model, $key) {
+                        return Html::a('查看', $url);
+                    },
+                    'update' => function($url, $model, $key) {
+                        return Html::a('编辑', $url);
+                    },
+                    'delete' => function($url, $model, $key) {
+                        $options = [
+                            'data-pjax' => 0,
+                            'data-confirm' => '您确定要删除此项吗？',
+                            'data-method' => 'post',
+                        ];
+                        return Html::a('删除', $url, $options);
+                    }
 
-            ['class' => 'yii\grid\ActionColumn'],
+                ],
+                'headerOptions'=>['class' => 'text-center','style'=>'10%'],
+                'header' => Yii::t('app', ''),
+            ],
         ],
     ]); ?>
 </div>

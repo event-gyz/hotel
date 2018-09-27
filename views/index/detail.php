@@ -2,14 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name=keywords content="找场地，上会唐 拥用20万会场资源，覆盖全国301个城市">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <!-- 当启动webapp功能时，显示手机信号、时间、电池的顶部导航栏的颜色。默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
     <meta name="format-detection" content="telephone=no, email=no" />
-    <title>酒店详情_会唐网</title>
+    <title><?= $hotel_info['hotel_name'] ?>_酒店详情</title>
     <link rel="stylesheet" href="/css/base.css" />
     <link rel="stylesheet" href="/css/hotel-common.css" />
     <link rel="stylesheet" href="/css/info.css" />

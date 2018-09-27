@@ -183,7 +183,8 @@ class IndexController extends Controller
         $obj['mch_id']         	= '1513357261'; //商户号
         $obj['body']        	= $body;
         $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
-        $obj['total_fee']       = $money*100;
+//        $obj['total_fee']       = $money*100;
+        $obj['total_fee']       = 1;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
         $obj['notify_url']      = 'http://fang.xxxxzzzz.xyz/index/changeOrderPayStatus?order_id='.$order_id;
 

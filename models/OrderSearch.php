@@ -18,8 +18,8 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'is_invoice', 'invoice_type'], 'integer'],
-            [['name', 'content_name', 'content_phone', 'email', 'invoice_title', 'invoice_address', 'invoice_name', 'invoice_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id', 'create_time'], 'safe'],
+            [['id'], 'integer'],
+            [['name', 'content_name', 'content_phone', 'check_in_time', 'check_out_time', 'total_price', 'hotel_id', 'room_id', 'create_time'], 'safe'],
         ];
     }
 
@@ -60,8 +60,6 @@ class OrderSearch extends Order
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'is_invoice' => $this->is_invoice,
-            'invoice_type' => $this->invoice_type,
             'check_in_time' => $this->check_in_time,
             'check_out_time' => $this->check_out_time,
             'create_time' => $this->create_time,
@@ -70,11 +68,6 @@ class OrderSearch extends Order
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'content_name', $this->content_name])
             ->andFilterWhere(['like', 'content_phone', $this->content_phone])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'invoice_title', $this->invoice_title])
-            ->andFilterWhere(['like', 'invoice_address', $this->invoice_address])
-            ->andFilterWhere(['like', 'invoice_name', $this->invoice_name])
-            ->andFilterWhere(['like', 'invoice_phone', $this->invoice_phone])
             ->andFilterWhere(['like', 'total_price', $this->total_price])
             ->andFilterWhere(['like', 'hotel_id', $this->hotel_id])
             ->andFilterWhere(['like', 'room_id', $this->room_id]);

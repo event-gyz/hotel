@@ -23,23 +23,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'content_phone') ?>
 
-    <?= $form->field($model, 'email') ?>
 
-    <?php // echo $form->field($model, 'is_invoice') ?>
 
-    <?php // echo $form->field($model, 'invoice_type') ?>
+    <?php  echo $form->field($model, 'check_in_time') ?>
 
-    <?php // echo $form->field($model, 'invoice_title') ?>
-
-    <?php // echo $form->field($model, 'invoice_address') ?>
-
-    <?php // echo $form->field($model, 'invoice_name') ?>
-
-    <?php // echo $form->field($model, 'invoice_phone') ?>
-
-    <?php // echo $form->field($model, 'check_in_time') ?>
-
-    <?php // echo $form->field($model, 'check_out_time') ?>
+    <?php  echo $form->field($model, 'check_out_time') ?>
 
     <?php // echo $form->field($model, 'total_price') ?>
 
