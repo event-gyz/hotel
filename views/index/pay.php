@@ -24,9 +24,9 @@
         <div class="pay">
             <div class="pay-top">
                 <!--nav-title-end-->
-                <div class="nav-title" style="background: none;">
-                    <i class="iconfont f20" style="color: #fff;">&#xe605;</i>
-                    <h2 style="background: none;color: #fff;">预订信息填写</h2></div>
+<!--                <div class="nav-title" style="background: none;">-->
+<!--                    <i class="iconfont f20" style="color: #fff;">&#xe605;</i>-->
+<!--                    <h2 style="background: none;color: #fff;">预订信息填写</h2></div>-->
                 <!--nav-title-end-->
                 <div class="pay-top-box">
                     <div class="name"><?= $hotel_info['hotel_name'] ?></div>
