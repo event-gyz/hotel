@@ -19,13 +19,13 @@ use yii\helpers\Url;
     <?= $form->field($model, 'hotel_address')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'find_time')->textInput() ?>
-
+    <?= $form->field($model, 'distances')->textInput() ?>
     <?php
 
     if(!empty($model->img)){
         ?>
         <div class="form-group">
-            <label class="control-label">原头像</label>
+            <label class="control-label">原酒店图片</label>
             <?php
             echo "<img src='{$model->img}' style='width:100px;height:80px;' class=\"form-control\">";
             ?>

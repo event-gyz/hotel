@@ -13,6 +13,7 @@ use Yii;
  * @property integer $find_time
  * @property string $img
  * @property string $create_time
+ * @property string $distances
  */
 class Hotel extends \yii\db\ActiveRecord
 {
@@ -34,7 +35,7 @@ class Hotel extends \yii\db\ActiveRecord
             [['find_time'], 'integer'],
             [['img'], 'string'],
             [['create_time'], 'safe'],
-            [['hotel_name'], 'string', 'max' => 50],
+            [['hotel_name','distances'], 'string', 'max' => 50],
             [['hotel_address'], 'string', 'max' => 255],
         ];
     }
@@ -51,6 +52,7 @@ class Hotel extends \yii\db\ActiveRecord
             'find_time' => '开业时间',
             'img' => '图片',
             'create_time' => 'Create Time',
+            'distances' => '距离',
         ];
     }
 }

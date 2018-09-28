@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
 //        'filterModel' => $searchModel,
         'columns' => [
-//            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => 'yii\grid\SerialColumn'],
             [
                 'label'=>'酒店名称',
 //                'filter' => Html::activeDropDownList(
@@ -70,11 +70,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'content_phone',
             [
                 'label'=>'入住时间',
-                'value'=>'check_in_time'
+                'value'=>
+                    function($model){
+                        $check_in_time = explode(' ',$model->check_in_time);
+                        return $check_in_time['0'];
+                    },
             ],
             [
                 'label'=>'离店时间',
-                'value'=>'check_out_time'
+                'value'=>
+                    function($model){
+                        $check_out_time = explode(' ',$model->check_out_time);
+                        return $check_out_time['0'];
+                    },
             ],
             [
                 'label'=>'订单金额',
