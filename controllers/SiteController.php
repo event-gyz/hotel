@@ -69,13 +69,14 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!\Yii::$app->user->isGuest) {
-
-            return $this->goHome();
+            return Yii::$app->getResponse()->redirect('/hotel/index');
+//            return $this->goHome();
         }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goHome();
+            return Yii::$app->getResponse()->redirect('/hotel/index');
+//            return $this->goHome();
         }
         //替换布局文件
         $this->layout = false;

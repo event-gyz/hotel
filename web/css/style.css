@@ -7,8 +7,8 @@ a:hover{color:#2EC770;}
 
 /*通用样式*/
 body {
-     font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;
-     color:#94A4A5;
+     font: 14px  Arial, Helvetica, sans-serif;
+     /*color:#94A4A5;*/
      background: #fff;
  }
 .rt{float:right;}

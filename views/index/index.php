@@ -241,7 +241,7 @@
                                 <br/>
                                 <p class="info"><?= $value['hotel_address'] ?></p>
                                 <div class="price">
-                                    <p class="left">距展馆 562m</p>
+                                    <p class="left"><?= $value['distances'] ?></p>
                                     <p class="right"><i>¥</i><b><?= $value['min_price'] ?></b><span>起</span></p>
                                 </div>
                             </li>

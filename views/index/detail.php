@@ -159,7 +159,7 @@
             </div>
             <div class="banner-title">
                 <div class="mt-detail-title"><h1 class="ellips"><?= $hotel_info['hotel_name'] ?></h1><i
-                        class="h_icons_diamond11 h_icons"></i></div>
+                        class="h_icons_diamond5 h_icons"></i></div>
 <!--                <ul>-->
 <!--                    <li class="left">--><?//= $hotel_info['hotel_name'] ?><!--<i class="h_icons_diamond11 h_icons"></i></li>-->
 <!--                </ul>-->
@@ -177,7 +177,7 @@
                         <div class="mt-place-left"><p class="f24"><span
                                     class="adr__txt--loc area-txt"><?= $hotel_info['hotel_address'] ?></span>
                             </p>
-                            <p class="c9d f22">距展馆 562m</p></div>
+                            <p class="c9d f22"><?= $hotel_info['distances'] ?></p></div>
                         <div class="mt-place-right"><span class="mt-detail-more">地图</span></div>
                     </li>
                 </ul>
@@ -300,10 +300,11 @@
                                 <li class="demand_expand_box_li">
                                     <div class="grid__dem--left fx1">
                                         <div class="txt__el--up">
-                                            <em class="spec-pri">专享价</em>
+                                            <em class="spec-pri"><?= $bed['name'] ?></em>
                                         </div>
                                         <div class="txt__el--down">
-                                            <?= $bed['bed_name'] ?>/<?= $bed['breakfast'] ?>
+                                            <?= $bed['bed_name'] ?>（含早）
+<!--                                            --><?//= $bed['breakfast'] ?>
                                         </div>
                                     </div>
                                     <div class="gri__el--pri df a-i-c fx1 lh">
