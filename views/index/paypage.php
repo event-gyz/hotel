@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/pay.css"/>
 
     <script src="/js/jquery-1.8.2.js"></script>
+    <script src="/js/layer/layer.min.js"></script>
     <script src="/js/jquery.form.js"></script>
 </head>
 <body>
@@ -76,7 +77,7 @@
                     // message: "微信支付成功!",
                     window.location("/");
                 }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
-                    alert('支付成功');
+                    layer.message('支付成功');
                     // message: "已取消微信支付!"
                 }
             }
