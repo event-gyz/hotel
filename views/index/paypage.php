@@ -24,9 +24,9 @@
         <div class="pay">
             <div class="pay-top">
                 <!--nav-title-end-->
-                <div class="nav-title" style="background: none;">
-                    <i class="iconfont f20" style="color: #fff;">&#xe605;</i>
-                    <h2 style="background: none;color: #fff;">支付订单</h2></div>
+<!--                <div class="nav-title" style="background: none;">-->
+<!--                    <i class="iconfont f20" style="color: #fff;">&#xe605;</i>-->
+<!--                    <h2 style="background: none;color: #fff;">支付订单</h2></div>-->
                 <!--nav-title-end-->
                 <div class="pay-top-box">
                     <div class="name">
@@ -72,8 +72,13 @@
             'getBrandWCPayRequest',
             <?php echo $wxJsApiData; ?>,
             function(res){
-//                WeixinJSBridge.log(res.err_msg);
-//                alert(res.err_code+res.err_desc+res.err_msg);
+                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                    // message: "微信支付成功!",
+                    window.location("/");
+                }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
+                    alert('支付成功');
+                    // message: "已取消微信支付!"
+                }
             }
         );
     }
