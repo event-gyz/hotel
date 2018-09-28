@@ -211,6 +211,7 @@ class IndexController extends Controller
         $data = Yii::$app->request->get();
         $order_id = $data['order_id'];
         Order::updateAll(['pay_status'=>1],['id'=>$order_id]);
+        header("Location:/index");
     }
     protected function getRoom($hotel_id){
         $room = new Room();

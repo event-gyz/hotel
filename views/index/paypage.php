@@ -74,11 +74,10 @@
             <?php echo $wxJsApiData; ?>,
             function(res){
                 if (res.err_msg == "get_brand_wcpay_request:ok") {
-                    // message: "微信支付成功!",
-                    window.location("/");
-                }else if (res.err_msg == "get_brand_wcpay_request:cancel") {
-                    layer.message('支付成功');
-                    // message: "已取消微信支付!"
+                    layer.alert('恭喜你，支付成功', {
+                    }, function(){
+                        window.location.replace("/index/change-status?order_id=<?=$_GET['orderId']?>");
+                    });
                 }
             }
         );
