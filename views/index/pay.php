@@ -37,7 +37,8 @@
                                 晚</span>
                         </p>
                         <p class="room-style">
-                            <span><?= $room_info['room_name'] ?></span><span><?= $bed_info['bed_name'] ?></span><span><?= $bed_info['breakfast'] ?></span>
+                            <span><?= $room_info['room_name'] ?></span><span><?= $bed_info['bed_name'] ?></span><span>（含早）</span>
+<!--                            --><?//= $bed_info['breakfast'] ?>
                         </p>
                     </div>
                 </div>
