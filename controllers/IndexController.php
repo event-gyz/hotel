@@ -101,6 +101,9 @@ class IndexController extends Controller
      */
     public function actionPay()
     {
+        if(strtotime($_GET['startDate']) < strtotime(date('Y-m-d',time()))){
+            header("Location:/index");
+        }
         $model = new Hotel();
         $bedModel = new Bed();
         $roomModel = new Room();
