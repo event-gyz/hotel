@@ -5,10 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Room */
 
-$this->title = 'Update Room: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Rooms', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = '修改 '.$model->room_name.' 信息';
+
 ?>
 <div class="room-update">
 

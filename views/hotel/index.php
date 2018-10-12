@@ -43,13 +43,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}',
+                'template' => '{update} {insert_room} {delete}',
                 'buttons' => [
                     'view' => function($url, $model, $key) {
                         return Html::a('查看', $url);
                     },
                     'update' => function($url, $model, $key) {
                         return Html::a('编辑', $url);
+                    },
+                    'insert_room' => function($url, $model, $key) {
+                        return Html::a('房型管理', '/room/index?hotel_id='.$model->id);
                     },
                     'delete' => function($url, $model, $key) {
                         $options = [

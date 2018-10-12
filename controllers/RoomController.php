@@ -8,6 +8,7 @@ use app\models\RoomSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * RoomController implements the CRUD actions for Room model.
@@ -23,7 +24,7 @@ class RoomController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['POST','GET'],
                 ],
             ],
         ];
@@ -36,7 +37,12 @@ class RoomController extends Controller
     public function actionIndex()
     {
         $searchModel = new RoomSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if($_GET['hotel_id']){
+            $params = ['RoomSearch'=>['hotel_id'=>$_GET['hotel_id']]];
+        }else{
+            $params = [];
+        }
+        $dataProvider = $searchModel->search($params);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -65,7 +71,23 @@ class RoomController extends Controller
     {
         $model = new Room();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
+        if ($model->load(Yii::$app->request->post())) {
+            $imageUploadFile =   UploadedFile::getInstance($model,'img');
+//            echo '<pre>';
+//            print_r($_FILES);exit;
+            if($imageUploadFile != null ){
+                $saveUrl = $this->qiniu($imageUploadFile);
+                $model->img = $saveUrl;
+            }
+            $model->save();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -73,7 +95,36 @@ class RoomController extends Controller
             ]);
         }
     }
-
+    public function qiniu($imageUploadFile){
+        $typeUrl = '/uploads/';
+        $saveUrl = $this->saveImage($imageUploadFile, '', '', $typeUrl);
+        return $saveUrl;
+    }
+    public function saveImage($imageUploadInstance, $width, $height, $type)
+    {
+        if ($imageUploadInstance == null)
+        {
+            return null;
+        }
+        $imageFileExt = strtolower($imageUploadInstance->getExtension());
+        $save_path    = Yii::$app->getBasePath().'/web'.$type;
+        if (!file_exists($save_path))
+        {
+            mkdir($save_path, 0777, true);
+        }
+        $ymd = date("Y/md");
+        $save_path .= $ymd . '/';
+        if (!file_exists($save_path))
+        {
+            mkdir($save_path, 0777, true);
+        }
+        $img_prefix    = date("YmdHis") . '_' . rand(10000, 99999);
+        $imageFileName = $img_prefix . '.' . $imageFileExt;
+        $save_path .= $imageFileName;
+        $imageUploadInstance->saveAs($save_path);
+        //$obj = Image::thumbnail($save_path, $width, $height)->save($save_path);
+        return  $type.$ymd . '/'. $imageFileName;
+    }
     /**
      * Updates an existing Room model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -84,13 +135,31 @@ class RoomController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            $data = Yii::$app->request->post()['Room'];
+//            print_r($data);exit;
+            $imageUploadFile =   UploadedFile::getInstance($model,'img');
+            if($imageUploadFile != null ){
+                $saveUrl = $this->qiniu($imageUploadFile);
+                $model->img = $saveUrl;
+            }
+            $model->room_name = $data['room_name'];
+            $model->area = $data['area'];
+//            $model->hotel_id = $data['hotel_id'];
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
             ]);
         }
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('update', [
+//                'model' => $model,
+//            ]);
+//        }
     }
 
     /**

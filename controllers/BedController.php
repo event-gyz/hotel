@@ -23,7 +23,7 @@ class BedController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['POST'],
+                    'delete' => ['POST','GET'],
                 ],
             ],
         ];
@@ -36,7 +36,12 @@ class BedController extends Controller
     public function actionIndex()
     {
         $searchModel = new BedSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if($_GET['room_id']){
+            $params = ['BedSearch'=>['room_id'=>$_GET['room_id']]];
+        }else{
+            $params = [];
+        }
+        $dataProvider = $searchModel->search($params);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

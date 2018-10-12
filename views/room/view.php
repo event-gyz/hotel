@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Room */
 
-$this->title = $model->id;
+$this->title = $model->room_name.' 房型信息';
 $this->params['breadcrumbs'][] = ['label' => 'Rooms', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('修改房型信息', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除房型信息', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '是否要删除该数？',
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,9 +31,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'room_name',
             'area',
-            'img',
+            [
+                'attribute' => 'img',
+                'value' => function($model){
+                    if(!empty($model->img)){
+                        $avatar = $model->img;
+                        return "<img src='{$avatar}' style='max-height:50px;max-width:50px'>";
+                    }else{
+                        return '';
+                    }
+                },
+                'format'=>'raw',
+            ],
             'hotel_id',
-            'create_time',
         ],
     ]) ?>
 
