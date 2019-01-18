@@ -162,6 +162,11 @@ class IndexController extends Controller
             $this->_return['msg'] = '联系人不能为空';
             $this->response($this->_return);
         }
+        if(!empty($data['content_phone']) && empty($data['sex'])){
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '请选择性别';
+            $this->response($this->_return);
+        }
         if (empty($data['content_phone'])) {
             $this->_return['errorno'] = -1;
             $this->_return['msg'] = '联系电话不能为空';

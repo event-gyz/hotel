@@ -17,6 +17,13 @@
 
     <script src="/js/jquery-1.8.2.js"></script>
     <script src="/js/jquery.form.js"></script>
+    <style>
+        .inputStyle {
+            vertical-align: text-bottom;
+            margin-bottom: 2px;
+            *margin-bottom: -2px;  //兼容IE6，IE7
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -78,8 +85,26 @@
                         <tr>
                             <td class="left">是否需要拼房</td>
                             <td >
-                                <input type="checkbox" name="is_pinfang" value="1" style="width:15px">
+                                <input type="checkbox" id="is_pinfang" name="is_pinfang" value="1" style="width:15px" class="inputStyle"/>
                                 <span class="label-text" style="color:#999">需要</span>
+                            </td>
+                        </tr>
+
+                        <tr hidden id="sex">
+                            <td class="left">您的性别</td>
+                            <td >
+                                <label class="radio-label">
+                                    <input id="radio2"
+                                           value='1'
+                                           name="sex" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">男</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input id="radio1"
+                                           value='2'
+                                           name="sex" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">女</span>
+                                </label>
                             </td>
                         </tr>
                         <input type="hidden" value="<?=$_GET['startDate']?>" name="check_in_time">
@@ -91,6 +116,7 @@
                 </form>
             </div>
             <div class="pay-terms">
+                <p><span>拼房须知：</span>如果拼房成功，在分房时工作人员会退还一半房费。</p>
                 <p><span>预订须知：</span>此为向代理商申请的特殊价格，我们会在一小时以内提供预订结果，请您耐心等待，到达酒店前台后请直接报入住客人姓名办理入住。</p>
                 <p><span>取消规则：</span>订单确认后不可变更取消，若未入住将收取您全额房费，订单不确认将全额退款至您的付款账户。附加服务费用将与房费同时扣除或返还。
                 </p>
@@ -107,7 +133,14 @@
     </div>
 </div>
 <script>
-
+    $("#is_pinfang").change(function () {
+        var is_pinfang = $(this).attr('checked');
+        if(is_pinfang == 'checked'){
+            $('#sex').show();
+        }else{
+            $('#sex').hide();
+        }
+    })
     $("#num").change(function () {
         var night = <?=(strtotime($_GET['endDate']) - strtotime($_GET['startDate'])) / 86400?>;
         var price = <?= $bed_info['price']?>;

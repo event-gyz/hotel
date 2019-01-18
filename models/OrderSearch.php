@@ -71,7 +71,7 @@ class OrderSearch extends Order
             ->andFilterWhere(['like', 'total_price', $this->total_price])
             ->andFilterWhere(['like', 'hotel_id', $this->hotel_id])
             ->andFilterWhere(['like', 'room_id', $this->room_id]);
-
+        $query->orderBy('create_time desc');
         return $dataProvider;
     }
 }

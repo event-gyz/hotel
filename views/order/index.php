@@ -64,10 +64,27 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
 
             ],
-
+            'num',
             'name',
             'content_name',
             'content_phone',
+            [
+                'label'=>'是否拼房',
+                'value'=>
+                    function($model){
+
+                        if($model->is_pinfang == 1){
+                            if($model->sex == 1){
+                                $sex = '男';
+                            }else{
+                                $sex = '女';
+                            }
+                            return '拼房('.$sex.')';
+                        }else{
+                            return '不拼房';
+                        }
+                    },
+            ],
             [
                 'label'=>'入住时间',
                 'value'=>
