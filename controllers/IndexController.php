@@ -152,7 +152,7 @@ class IndexController extends Controller
             $this->response($this->_return);
         }
 
-        if (empty($data['那么'])) {
+        if (empty($data['name'])) {
             $this->_return['errorno'] = -1;
             $this->_return['msg'] = '入住人不能为空';
             $this->response($this->_return);
