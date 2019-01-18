@@ -24,6 +24,7 @@ use Yii;
  * @property string $hotel_id
  * @property string $room_id
  * @property string $bed_id
+ * @property integer $is_pinfang
  * @property integer $num
  * @property integer $nights
  * @property integer $pay_status
@@ -68,6 +69,7 @@ class Order extends \yii\db\ActiveRecord
             'room_id' => '房型ID',
             'create_time' => '下单时间',
             'pay_status' => '支付状态',
+            'is_pinfang' => '是否拼房',
         ];
     }
 }

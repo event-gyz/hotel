@@ -75,6 +75,13 @@
                                 <input type="text" placeholder="11位手机号码"  name="content_phone">
                             </td>
                         </tr>
+                        <tr>
+                            <td class="left">是否需要拼房</td>
+                            <td >
+                                <input type="checkbox" name="is_pinfang" value="1" style="width:15px">
+                                <span class="label-text" style="color:#999">需要</span>
+                            </td>
+                        </tr>
                         <input type="hidden" value="<?=$_GET['startDate']?>" name="check_in_time">
                         <input type="hidden" value="<?=$_GET['endDate']?>" name="check_out_time">
                         <input type="hidden" value="<?=$bed_info['id']?>" name="bed_id">

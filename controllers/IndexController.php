@@ -140,6 +140,33 @@ class IndexController extends Controller
         $model = new Order();
         $bedModel = new Bed();
         $data = Yii::$app->request->post();
+        if (empty($data['check_in_time'])) {
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '入住时间不能为空';
+            $this->response($this->_return);
+        }
+
+        if (empty($data['check_out_time'])) {
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '离店时间不能为空';
+            $this->response($this->_return);
+        }
+
+        if (empty($data['那么'])) {
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '入住人不能为空';
+            $this->response($this->_return);
+        }
+        if (empty($data['content_name'])) {
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '联系人不能为空';
+            $this->response($this->_return);
+        }
+        if (empty($data['content_phone'])) {
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '联系电话不能为空';
+            $this->response($this->_return);
+        }
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
         $data['create_time'] = date('Y-m-d H:i:s',time());
         $data['room_id'] = $bed['room_id'];
@@ -152,17 +179,7 @@ class IndexController extends Controller
 //            $modelData['Order'] = $data;
 
 //            $model->load($modelData);
-            if (empty($data['check_in_time'])) {
-                throw new Exception('入住时间不能为空', -1);
-            }
 
-            if (empty($data['check_out_time'])) {
-                throw new Exception('离店时间不能为空', -2);
-            }
-
-            if (empty($data['total_price'])) {
-                throw new Exception('价格不能为空', -3);
-            }
             unset($data['_csrf']);
             $db = \Yii::$app->db->createCommand();
             $db->insert('order' , $data )->execute();
