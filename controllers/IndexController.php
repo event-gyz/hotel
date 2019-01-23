@@ -78,13 +78,13 @@ class IndexController extends Controller
      */
     public function actionList()
     {
-//        $session = Yii::$app->session;
-//        if(!empty($_GET['openid'])){
-//            $session['open_id'] = $_GET['openid'];
-//        }
-//        if(!isset($session['open_id'])){
-//            header("Location:/index/get-openid");
-//        }
+        $session = Yii::$app->session;
+        if(!empty($_GET['openid'])){
+            $session['open_id'] = $_GET['openid'];
+        }
+        if(!isset($session['open_id'])){
+            header("Location:/index/get-openid");
+        }
         $model = new Hotel();
         $hotel_list = $model->find()->asArray()->all();
         foreach($hotel_list as &$value){
