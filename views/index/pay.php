@@ -82,13 +82,13 @@
                                 <input type="text" placeholder="11位手机号码"  name="content_phone">
                             </td>
                         </tr>
-                        <tr>
-                            <td class="left">是否需要拼房</td>
-                            <td >
-                                <input type="checkbox" id="is_pinfang" name="is_pinfang" value="1" style="width:15px" class="inputStyle"/>
-                                <span class="label-text" style="color:#999">需要</span>
-                            </td>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <td class="left">是否需要拼房</td>-->
+<!--                            <td >-->
+<!--                                <input type="checkbox" id="is_pinfang" name="is_pinfang" value="1" style="width:15px" class="inputStyle"/>-->
+<!--                                <span class="label-text" style="color:#999">需要</span>-->
+<!--                            </td>-->
+<!--                        </tr>-->
 
                         <tr hidden id="sex">
                             <td class="left">您的性别</td>
@@ -116,7 +116,7 @@
                 </form>
             </div>
             <div class="pay-terms">
-                <p><span>拼房须知：</span>如果拼房成功，在分房时工作人员会退还一半房费。</p>
+<!--                <p><span>拼房须知：</span>如果拼房成功，在分房时工作人员会退还一半房费。</p>-->
                 <p><span>预订须知：</span>此为向代理商申请的特殊价格，我们会在一小时以内提供预订结果，请您耐心等待，到达酒店前台后请直接报入住客人姓名办理入住。</p>
                 <p><span>取消规则：</span>订单确认后不可变更取消，若未入住将收取您全额房费，订单不确认将全额退款至您的付款账户。附加服务费用将与房费同时扣除或返还。
                 </p>
@@ -133,14 +133,14 @@
     </div>
 </div>
 <script>
-    $("#is_pinfang").change(function () {
-        var is_pinfang = $(this).attr('checked');
-        if(is_pinfang == 'checked'){
-            $('#sex').show();
-        }else{
-            $('#sex').hide();
-        }
-    })
+//    $("#is_pinfang").change(function () {
+//        var is_pinfang = $(this).attr('checked');
+//        if(is_pinfang == 'checked'){
+//            $('#sex').show();
+//        }else{
+//            $('#sex').hide();
+//        }
+//    })
     $("#num").change(function () {
         var night = <?=(strtotime($_GET['endDate']) - strtotime($_GET['startDate'])) / 86400?>;
         var price = <?= $bed_info['price']?>;

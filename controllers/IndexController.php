@@ -69,12 +69,28 @@ class IndexController extends Controller
         if(!isset($session['open_id'])){
             header("Location:/index/get-openid");
         }
+        return $this->render('index');
+    }
+
+    /**
+     * Lists all Room models.
+     * @return mixed
+     */
+    public function actionList()
+    {
+//        $session = Yii::$app->session;
+//        if(!empty($_GET['openid'])){
+//            $session['open_id'] = $_GET['openid'];
+//        }
+//        if(!isset($session['open_id'])){
+//            header("Location:/index/get-openid");
+//        }
         $model = new Hotel();
         $hotel_list = $model->find()->asArray()->all();
         foreach($hotel_list as &$value){
             $value['min_price'] = $this->getMinPrice($value['id']);
         }
-        return $this->render('index', [
+        return $this->render('list', [
             'hotel_list' => $hotel_list
         ]);
     }
@@ -162,7 +178,7 @@ class IndexController extends Controller
             $this->_return['msg'] = '联系人不能为空';
             $this->response($this->_return);
         }
-        if(!empty($data['content_phone']) && empty($data['sex'])){
+        if(!empty($data['is_pinfang']) && empty($data['sex'])){
             $this->_return['errorno'] = -1;
             $this->_return['msg'] = '请选择性别';
             $this->response($this->_return);
