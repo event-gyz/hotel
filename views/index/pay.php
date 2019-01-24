@@ -36,7 +36,7 @@
 <!--                    <h2 style="background: none;color: #fff;">预订信息填写</h2></div>-->
                 <!--nav-title-end-->
                 <div class="pay-top-box">
-                    <div class="name"><?= $hotel_info['hotel_name'] ?></div>
+                    <div class="name"><?= $hotel_info['hotel_name'] ?><span style="font-size:10px">(2月23日～3月2日)</span></div>
                     <div class="info">
                         <p class="title"><?= $hotel_info['hotel_address'] ?></p>
                         <p class="date">

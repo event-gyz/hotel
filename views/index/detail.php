@@ -158,8 +158,11 @@
                 <div class="swiper-pagination"></div>
             </div>
             <div class="banner-title">
-                <div class="mt-detail-title"><h1 class="ellips"><?= $hotel_info['hotel_name'] ?></h1><i
-                        class="h_icons_diamond5 h_icons"></i></div>
+                <div class="mt-detail-title">
+                    <h1 class="ellips"><?= $hotel_info['hotel_name'] ?></h1>
+<!--                    <span style="font-size:10px">(2月23日～3月2日)</span>-->
+                    <i class="h_icons_diamond5 h_icons"></i>
+                </div>
 <!--                <ul>-->
 <!--                    <li class="left">--><?//= $hotel_info['hotel_name'] ?><!--<i class="h_icons_diamond11 h_icons"></i></li>-->
 <!--                </ul>-->
@@ -178,7 +181,7 @@
                                     class="adr__txt--loc area-txt"><?= $hotel_info['hotel_address'] ?></span>
                             </p>
                             <p class="c9d f22"><?= $hotel_info['distances'] ?></p></div>
-                        <div class="mt-place-right"><span class="mt-detail-more">地图</span></div>
+<!--                        <div class="mt-place-right"><span class="mt-detail-more">地图</span></div>-->
                     </li>
                 </ul>
             </div>

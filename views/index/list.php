@@ -237,7 +237,9 @@
                             <li class="style-left"><img class="" src="<?= $value['img'] ?>"
                                                         alt="<?= $value['hotel_name'] ?>"></li>
                             <li class="style-right">
-                                <h3><?= $value['hotel_name'] ?></h3>
+                                <h4 style="display:inline"><?= $value['hotel_name'] ?></h4>
+                                <span style="font-size:10px">(2月23日～3月2日)</span>
+                                <br/>
                                 <br/>
                                 <p class="info"><?= $value['hotel_address'] ?></p>
                                 <div class="price">

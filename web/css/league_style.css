@@ -13582,7 +13582,7 @@ div[data-view-name=order] .cui-select-view {
     display: inline-block;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(http://pic.c-ctrip.com/scenic_htl/meeting_h5/diamond.png);
+    background-image: url(/images/diamond.png);
     margin: 0 0 0 .2rem;
     vertical-align: 11.5px;
     background-position: 0 0
