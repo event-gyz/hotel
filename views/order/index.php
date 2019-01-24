@@ -141,7 +141,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'data-confirm' => '您确定要删除此项吗？',
                             'data-method' => 'post',
                         ];
-                        return Html::a('删除', $url, $options);
+//                        return Html::a('删除', $url, $options);
                     }
 
                 ],
