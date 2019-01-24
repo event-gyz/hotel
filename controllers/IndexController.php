@@ -188,6 +188,11 @@ class IndexController extends Controller
             $this->_return['msg'] = '联系电话不能为空';
             $this->response($this->_return);
         }
+        if(strlen($data['content_phone']) < 11){
+            $this->_return['errorno'] = -1;
+            $this->_return['msg'] = '联系电话格式不正确';
+            $this->response($this->_return);
+        }
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
         $data['create_time'] = date('Y-m-d H:i:s',time());
         $data['room_id'] = $bed['room_id'];
@@ -225,8 +230,8 @@ class IndexController extends Controller
         $obj['mch_id']         	= '1513357261'; //商户号
         $obj['body']        	= $body;
         $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
-//        $obj['total_fee']       = $money*100;
-        $obj['total_fee']       = 1;
+        $obj['total_fee']       = $money*100;
+//        $obj['total_fee']       = 1;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
         $obj['notify_url']      = 'http://fang.xxxxzzzz.xyz/index/change-status?order_id='.$order_id;
 
@@ -252,7 +257,7 @@ class IndexController extends Controller
         $data = Yii::$app->request->get();
         $order_id = $data['order_id'];
         Order::updateAll(['pay_status'=>1],['id'=>$order_id]);
-        header("Location:/index");
+        header("Location:/list");
     }
     protected function getRoom($hotel_id){
         $room = new Room();
