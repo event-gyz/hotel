@@ -149,6 +149,7 @@
             width: 200px;
         }
         #RangeDate{
+            z-index:2;
             display: flex;
             flex-wrap: wrap;
             text-align: center;
@@ -160,6 +161,7 @@
             left: 0;
             width: 100%;
             overflow: hidden;
+            background: white;
         }
         .RangeDate_xinqi{
             width: 14%;
@@ -331,13 +333,13 @@
                 <div id="firstSelect" style="width:100%;">
                     <div class="Date_lr" style="float:left;">
                         <P>入住</p>
-                        <span class="time entertime"></span>
-                        <input id="startDate" class="input-enter none" type="text" value="" style="" readonly>
+                        <span class="time entertime"><?= date('Y-m-d')?></span>
+                        <input id="startDate" class="input-enter none" type="text" value="<?= date('Y-m-d')?>" style="" readonly>
                     </div>
                     <div class="Date_lr" style="float:right;">
                         <p>离店</p>
-                        <span class="time leavetime"></span>
-                        <input id="endDate" class="input-leave none" type="text" value="" style="" readonly>
+                        <span class="time leavetime"><?= date("Y-m-d",strtotime("+1 day"))?></span>
+                        <input id="endDate" class="input-leave none" type="text" value="<?= date("Y-m-d",strtotime("+1 day"))?>" style="" readonly>
                     </div>
                     <span class="span21 night">共<span class="NumDate">1</span>晚</span>
                 </div>
