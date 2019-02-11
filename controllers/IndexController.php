@@ -290,6 +290,7 @@ class IndexController extends Controller
 //        //解析json
 //        $user_obj = json_decode($res,true);
         if(!empty($openid)){
+            $session = Yii::$app->session;
             $session['open_id'] = $openid;
             header("Location:/index");
         }else{
