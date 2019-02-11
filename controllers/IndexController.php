@@ -64,7 +64,7 @@ class IndexController extends Controller
     {
         $session = Yii::$app->session;
 
-        if(!isset($session['open_id']) && ($session['expire_time'] < time())){
+        if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
         }
         return $this->render('index');
@@ -77,7 +77,7 @@ class IndexController extends Controller
     public function actionList()
     {
         $session = Yii::$app->session;
-        if(!isset($session['open_id']) && ($session['expire_time'] < time())){
+        if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
         }
         $model = new Hotel();
