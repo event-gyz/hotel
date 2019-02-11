@@ -63,9 +63,6 @@ class IndexController extends Controller
     public function actionIndex()
     {
         $session = Yii::$app->session;
-        if(!empty($_GET['openid'])){
-            $session['open_id'] = $_GET['openid'];
-        }
         if(!isset($session['open_id'])){
             header("Location:/index/get-openid");
         }
@@ -79,9 +76,6 @@ class IndexController extends Controller
     public function actionList()
     {
         $session = Yii::$app->session;
-        if(!empty($_GET['openid'])){
-            $session['open_id'] = $_GET['openid'];
-        }
         if(!isset($session['open_id'])){
             header("Location:/index/get-openid");
         }
@@ -296,7 +290,8 @@ class IndexController extends Controller
 //        //解析json
 //        $user_obj = json_decode($res,true);
         if(!empty($openid)){
-            header("Location:/index?openid=$openid");
+            $session['open_id'] = $openid;
+            header("Location:/index");
         }else{
             print_r($json_obj);exit;
         }
