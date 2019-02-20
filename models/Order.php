@@ -31,6 +31,7 @@ use Yii;
  * @property string $create_time
  * @property integer $sex
  * @property integer $order_no
+ *
  */
 class Order extends \yii\db\ActiveRecord
 {

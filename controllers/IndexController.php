@@ -139,7 +139,7 @@ class IndexController extends Controller
         $hotelInfo = $model->find()->where(['id'=>$orderInfo['hotel_id']])->asArray()->one();
         $session = Yii::$app->session;
         $open_id = $session['open_id'];
-        $wxJsApiData = $this->wxpay($open_id,'房费',$orderInfo['total_price'],$orderInfo['id'],$orderInfo['order_no']);
+        $wxJsApiData = $this->wxpay($open_id,'房费',$orderInfo['total_price'],$orderInfo['id']);
         return $this->render('paypage', [
             'hotel_info' => $hotelInfo,
             'order_info' =>$orderInfo,
@@ -195,7 +195,6 @@ class IndexController extends Controller
         $data['check_out_time'] = $data['check_out_time'].' 00:00:00';
         $data['nights'] = (strtotime($data['check_out_time'])-strtotime($data['check_in_time']))/86400;
         $data['total_price'] = $data['nights'] * $data['num'] * $bed['price'];
-        $data['order_no'] = date('YmdHis').rand(1000, 9999);
         $transaction = Yii::$app->db->beginTransaction();
         try {
 //            $modelData['Order'] = $data;
@@ -220,12 +219,12 @@ class IndexController extends Controller
             $this->response($this->_return);
         }
     }
-    public function wxpay($openid,$body,$money,$order_id,$order_no){
+    public function wxpay($openid,$body,$money,$order_id){
         $obj = array();
         $obj['appid']           = $this->appId; //小程序appid
         $obj['mch_id']         	= '1513357261'; //商户号
         $obj['body']        	= $body;
-        $obj['out_trade_no']	= $order_no;
+        $obj['out_trade_no']	= date('YmdHis').rand(1000, 9999);
         $obj['total_fee']       = $money*100;
 //        $obj['total_fee']       = 1;
         $obj['spbill_create_ip']= $_SERVER['REMOTE_ADDR'];
