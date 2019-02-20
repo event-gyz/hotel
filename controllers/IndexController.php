@@ -63,6 +63,7 @@ class IndexController extends Controller
      */
     public function actionIndex()
     {
+        $this->handleOrder();
         $session = Yii::$app->session;
 
         if(!isset($session['open_id']) || ($session['expire_time'] < time())){
@@ -78,7 +79,6 @@ class IndexController extends Controller
      */
     public function actionList()
     {
-        $this->handleOrder();
         $session = Yii::$app->session;
         if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
