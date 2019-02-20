@@ -20,6 +20,7 @@ use yii\base\Exception;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\Wx;
+use app\models\WechatAppPay;
 
 /**
  * RoomController implements the CRUD actions for Room model.
@@ -67,6 +68,7 @@ class IndexController extends Controller
         if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
         }
+
         return $this->render('index');
     }
 
@@ -76,6 +78,7 @@ class IndexController extends Controller
      */
     public function actionList()
     {
+        $this->handleOrder();
         $session = Yii::$app->session;
         if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
@@ -334,5 +337,41 @@ class IndexController extends Controller
         $room_ids = implode(',',array_column($room_list,'id'));
         $res = $bed->find()->where(['in','room_id',$room_ids])->orderBy(['price' => SORT_ASC])->asArray()->one();
         return $res['price'];
+    }
+
+
+
+    public function handleOrder(){
+
+        $five = time() - (86400*5);
+        $time = date('Y-m-d H:i:s',$five);
+        $allNotPayOrder = Order::find()->where(['pay_status'=>0])->andWhere(['<>','order_no','0'])
+            ->andWhere(['>','create_time',$time])
+//            ->createCommand()->getRawSql();
+            ->asArray()->all();
+//        echo $allNotPayOrder;exit;
+        $weAppPay = new WechatAppPay();
+        foreach($allNotPayOrder as $value){
+            $order = Order::findOne($value['id']);
+            $data = $weAppPay->orderQuery($value['order_no']);
+            if($data['trade_state'] == 'SUCCESS'){
+                $order->pay_status =1 ;
+            }
+        }
+    }
+
+    public function https_request($url, $data = null){
+          $curl = curl_init();
+          curl_setopt($curl, CURLOPT_URL, $url);
+          curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+          curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+          if (!empty($data)){
+              curl_setopt($curl, CURLOPT_POST, 1);
+              curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+          }
+          curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+          $output = curl_exec($curl);
+          curl_close($curl);
+          return $output;
     }
 }
