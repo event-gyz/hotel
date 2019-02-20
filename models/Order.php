@@ -30,6 +30,7 @@ use Yii;
  * @property integer $pay_status
  * @property string $create_time
  * @property integer $sex
+ * @property integer $order_no
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -73,6 +74,7 @@ class Order extends \yii\db\ActiveRecord
             'is_pinfang' => '是否拼房',
             'sex' => '性别',
             'num'=>'房间数量',
+            'order_no'=>'订单号',
         ];
     }
 }
