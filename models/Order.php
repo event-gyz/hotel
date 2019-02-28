@@ -31,6 +31,7 @@ use Yii;
  * @property string $create_time
  * @property integer $sex
  * @property integer $order_no
+ * @property string $open_id
  *
  */
 class Order extends \yii\db\ActiveRecord
@@ -76,6 +77,7 @@ class Order extends \yii\db\ActiveRecord
             'sex' => '性别',
             'num'=>'房间数量',
             'order_no'=>'订单号',
+            'open_id'=>'微信open_id',
         ];
     }
 }

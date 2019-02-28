@@ -192,6 +192,10 @@ class IndexController extends Controller
             $this->response($this->_return);
         }
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
+
+        $session = Yii::$app->session;
+        
+        $data['open_id'] = $session['open_id'];
         $data['create_time'] = date('Y-m-d H:i:s',time());
         $data['room_id'] = $bed['room_id'];
         $data['check_in_time']  = $data['check_in_time'].' 00:00:00';
