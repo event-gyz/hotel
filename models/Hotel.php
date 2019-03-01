@@ -46,7 +46,7 @@ class Hotel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => '酒店id',
             'hotel_name' => '酒店名称',
             'hotel_address' => '酒店地址',
             'find_time' => '开业时间',
