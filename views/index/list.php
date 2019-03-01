@@ -17,6 +17,19 @@
     <link rel="stylesheet" href="/css/calendar.css"/>
     <link rel="stylesheet" href="/css/index-date.css"/>
     <style type="text/css">
+        html,body{
+            margin:0;padding:0;height:100%;width:100%;
+        }
+        footer{
+            background:#F2F3F6;max-width: 750px;width: 100%;height: 1rem;
+        }
+
+        .box{
+            display:flex;display: -webkit-flex;height:100%;flex-direction:column;
+        .roll{
+            flex: 1; width: 100%;overflow-y: scroll;-webkit-overflow-scrolling: touch;height: auto;
+        }
+        }
         /* .mask_calendar {
             width: 100%;
             height: 100%;
@@ -314,6 +327,31 @@
         .RangeDate_none{
             display: none !important;
         }
+
+        .btn_menubar_bottom {
+
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 55px;
+            line-height: 55px;
+        }
+
+        .btn_menubar_bottom , img{
+            margin: 0 auto;
+        }
+        .btn_menubar_bottom > .menu_left{
+            background: #4FA9FF;
+            float:left;
+            width:50%;
+            text-align:center;
+        }
+        .btn_menubar_bottom > .menu_right{
+            background: white;
+            float:right;
+            width:50%;
+            text-align:center;
+        }
     </style>
 </head>
 <body>
@@ -535,66 +573,6 @@
                 }
                 RangeDate('firstSelect')
             </script>
-<!--            <script>-->
-<!--                $(function () {-->
-<!--                    $('#firstSelect').on('click', function () {-->
-<!--                        $('.mask_calendar').show();-->
-<!--                    });-->
-<!--                    $('.mask_calendar').on('click', function (e) {-->
-<!--                        if (e.target.className == "mask_calendar") {-->
-<!--                            $('.calendar').slideUp(200);-->
-<!--                            $('.mask_calendar').fadeOut(200);-->
-<!--                        }-->
-<!--                    })-->
-<!--                    $('#firstSelect').calendarSwitch({-->
-<!--                        selectors: {-->
-<!--                            sections: ".calendar"-->
-<!--                        },-->
-<!--                        index: 4,      //展示的月份个数-->
-<!--                        animateFunction: "slideToggle",        //动画效果-->
-<!--                        controlDay: true,//知否控制在daysnumber天之内，这个数值的设置前提是总显示天数大于90天-->
-<!--                        daysnumber: "90",     //控制天数-->
-<!--                        comeColor: "#4FA9FF",       //入住颜色-->
-<!--                        outColor: "#4FA9FF",      //离店颜色-->
-<!--                        comeoutColor: "#E0F4F2",        //入住和离店之间的颜色-->
-<!--                        callback: function () {//回调函数-->
-<!--                            $('.mask_calendar').fadeOut(200);-->
-<!--                            var startDate = $('#startDate').val();  //入住的天数-->
-<!--                            var endDate = $('#endDate').val();      //离店的天数-->
-<!--                            var NumDate = $('.NumDate').text();    //共多少晚-->
-<!--                            console.log(startDate);-->
-<!--                            console.log(endDate);-->
-<!--                            console.log(NumDate);-->
-<!--                            //下面做ajax请求-->
-<!--                            //show_loading();-->
-<!--                            /*$.post("demo.php",{startDate:startDate, endDate:endDate, NumDate:NumDate},function(data){-->
-<!--                             if(data.result==1){-->
-<!--                             //成功-->
-<!--                             } else {-->
-<!--                             //失败-->
-<!--                             }-->
-<!--                             });*/-->
-<!--                        },-->
-<!--                        comfireBtn: '.comfire'//确定按钮的class或者id-->
-<!--                    });-->
-<!--                    var b = new Date();-->
-<!--                    var ye = b.getFullYear();-->
-<!--                    var mo = b.getMonth() + 1;-->
-<!--                    mo = mo < 10 ? "0" + mo : mo;-->
-<!--                    var da = b.getDate();-->
-<!--                    da = da < 10 ? "0" + da : da;-->
-<!--                    $('#startDate').val(ye + '-' + mo + '-' + da);-->
-<!--                    b = new Date(b.getTime() + 24 * 3600 * 1000);-->
-<!--                    var ye = b.getFullYear();-->
-<!--                    var mo = b.getMonth() + 1;-->
-<!--                    mo = mo < 10 ? "0" + mo : mo;-->
-<!--                    var da = b.getDate();-->
-<!--                    da = da < 10 ? "0" + da : da;-->
-<!--                    $('#endDate').val(ye + '-' + mo + '-' + da);-->
-<!--                });-->
-<!--            </script>-->
-
-
             <!--head-end-->
             <!--list-->
             <div class="list-main-list">
@@ -624,6 +602,20 @@
         </div>
     </div>
 </div>
+<div class="btn_menubar_bottom">
+    <span class="menu_left">
+        <a href="/index/list" class="">
+            <img src="/images/hotel1.png" style="display: flex;width: 35.496px; height: 60.496px;"/>
+        </a>
+    </span>
+    <span class="menu_right">
+        <a href="/index/my" class="" >
+            <img src="/images/my-order1.png" style="display: flex; width: 35.496px; height: 60.496px;"/>
+        </a>
+    </span>
+</div>
+
+<!---公用样式--->
 
 <script>
     $(".go_detail").click(function () {

@@ -83,13 +83,43 @@ class IndexController extends Controller
         if(!isset($session['open_id']) || ($session['expire_time'] < time())){
             header("Location:/index/get-openid");
         }
+        $hotel_ids = Yii::$app->request->get('id');
+        if($hotel_ids){
+            $hotel_id = explode(',',$hotel_ids);
+        }
         $model = new Hotel();
-        $hotel_list = $model->find()->asArray()->all();
+        $query = $model->find();
+        if(isset($hotel_id)){
+            $query->where(['id'=>$hotel_id]);
+        }
+        $hotel_list = $query->asArray()->all();
         foreach($hotel_list as &$value){
             $value['min_price'] = $this->getMinPrice($value['id']);
         }
         return $this->render('list', [
             'hotel_list' => $hotel_list
+        ]);
+    }
+
+
+    /**
+     * Lists all Room models.
+     * @return mixed
+     */
+    public function actionMy()
+    {
+        $session = Yii::$app->session;
+        if(!isset($session['open_id']) || ($session['expire_time'] < time())){
+            header("Location:/index/get-openid");
+        }
+        $model = new Order();
+        $order_list = $model->find()->select('o.*,b.bed_name,h.hotel_name,r.room_name,h.img,h.hotel_address')->alias('o')
+            ->leftJoin(['h'=>Hotel::tableName()],'o.hotel_id=h.id')
+            ->leftJoin(['r'=>Room::tableName()],'o.room_id=r.id')
+            ->leftJoin(['b'=>Bed::tableName()],'o.bed_id=b.id')
+            ->where(['open_id'=>$session['open_id']])->asArray()->all();
+        return $this->render('my', [
+            'order_list' => $order_list
         ]);
     }
 
@@ -194,7 +224,7 @@ class IndexController extends Controller
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
 
         $session = Yii::$app->session;
-        
+
         $data['open_id'] = $session['open_id'];
         $data['create_time'] = date('Y-m-d H:i:s',time());
         $data['room_id'] = $bed['room_id'];
@@ -347,7 +377,7 @@ class IndexController extends Controller
 
     public function handleOrder(){
 
-        $five = time() - (86400*5);
+        $five = time() - (86400*2);
         $time = date('Y-m-d H:i:s',$five);
         $allNotPayOrder = Order::find()->where(['pay_status'=>0])->andWhere(['<>','order_no','0'])
             ->andWhere(['>','create_time',$time])
