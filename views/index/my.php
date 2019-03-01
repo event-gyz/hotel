@@ -348,7 +348,7 @@
                     <div class="divHeight"></div>
                 <?php } ?>
                 <?php }else{?>
-                    <span style="text-align: center;width:100%">暂无订单</span>
+                    <div style="text-align: center;width:100%">暂无订单</div>
                 <?php }?>
                 <!--style-end-->
             </div>
