@@ -312,6 +312,7 @@
             <!--list-->
             <div class="list-main-list">
                 <!--style-->
+                <?php if(is_array($order_list) && !empty($order_list)){?>
                 <?php foreach ($order_list as $value) { ?>
                     <div class="tab-item">
                         <a href="javascript:void(0);" class="aui-well-item aui-well-item-clear">
@@ -346,6 +347,9 @@
                     </div>
                     <div class="divHeight"></div>
                 <?php } ?>
+                <?php }else{?>
+                    <span style="text-align: center;width:100%">暂无订单</span>
+                <?php }?>
                 <!--style-end-->
             </div>
             <!--list-->
