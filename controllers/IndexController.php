@@ -117,7 +117,7 @@ class IndexController extends Controller
             ->leftJoin(['h'=>Hotel::tableName()],'o.hotel_id=h.id')
             ->leftJoin(['r'=>Room::tableName()],'o.room_id=r.id')
             ->leftJoin(['b'=>Bed::tableName()],'o.bed_id=b.id')
-            ->where(['open_id'=>$session['open_id']])->asArray()->all();
+            ->where(['open_id'=>$session['open_id'],'pay_status'=>1])->asArray()->all();
         return $this->render('my', [
             'order_list' => $order_list
         ]);
