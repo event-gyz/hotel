@@ -13,6 +13,7 @@ use Yii;
  * @property integer $breakfast
  * @property string $price
  * @property string $create_time
+ * @property integer $room_id
  */
 class Bed extends \yii\db\ActiveRecord
 {
@@ -44,9 +45,10 @@ class Bed extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => '名称',
-            'bed_name' => '床型名称',
-            'breakfast' => '早餐情况',
+            'name' => '床型名称',
+            'bed_name' => '床型',
+            'breakfast' => '早餐 1无早 2单早 3双早',
+            'room_id' => '',
             'price' => '价格',
             'create_time' => 'Create Time',
         ];

@@ -18,8 +18,8 @@ class BedSearch extends Bed
     public function rules()
     {
         return [
-            [['id', 'breakfast'], 'integer'],
-            [['name','bed_name', 'price', 'create_time'], 'safe'],
+            [['id', 'breakfast','room_id'], 'integer'],
+            [['name','bed_name', 'price', 'create_time','room_id'], 'safe'],
         ];
     }
 
@@ -44,11 +44,11 @@ class BedSearch extends Bed
         $query = Bed::find();
 
         // add conditions that should always apply here
-
+//        echo '<pre>';
+//        print_r($params);exit;
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         $this->load($params);
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -61,11 +61,12 @@ class BedSearch extends Bed
             'id' => $this->id,
             'breakfast' => $this->breakfast,
             'create_time' => $this->create_time,
+            'room_id' => $this->room_id,
         ]);
 
         $query->andFilterWhere(['like', 'bed_name', $this->bed_name])
             ->andFilterWhere(['like', 'price', $this->price]);
-
+//        echo $query->createCommand()->getRawSql();exit;
         return $dataProvider;
     }
 }

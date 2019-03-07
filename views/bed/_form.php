@@ -12,6 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+    <?php
+    if(isset($_GET['room_id'])){
+        $room_id = $_GET['room_id'];
+    }else{
+        $room_id = $model->room_id;
+    }
+    ?>
+    <?= $form->field($model, 'room_id')->hiddenInput(['value'=>$room_id])->label(false) ?>
+
     <?= $form->field($model, 'bed_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'breakfast')->textInput() ?>

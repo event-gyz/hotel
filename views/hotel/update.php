@@ -8,7 +8,7 @@ use yii\helpers\Html;
 $this->title = '修改酒店信息: ' . $model->hotel_name;
 $this->params['breadcrumbs'][] = ['label' => 'Hotels', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = '修改信息';
 ?>
 <div class="hotel-update">
 

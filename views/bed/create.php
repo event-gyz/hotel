@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Bed */
 
-$this->title = 'Create Bed';
+$this->title = '添加床型';
 $this->params['breadcrumbs'][] = ['label' => 'Beds', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

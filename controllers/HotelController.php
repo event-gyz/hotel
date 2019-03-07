@@ -68,15 +68,12 @@ class HotelController extends Controller
         $model = new Hotel();
 //        print_r(Yii::$app->request->post());exit;
         if ($model->load(Yii::$app->request->post())) {
-            $imageUploadFile =   UploadedFile::getInstance($model,'img');
-//            echo '<pre>';
-//            print_r($_FILES);exit;
+            $imageUploadFile = UploadedFile::getInstance($model,'img');
             if($imageUploadFile != null ){
                 $saveUrl = $this->qiniu($imageUploadFile);
                 $model->img = $saveUrl;
             }
             $model->save();
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

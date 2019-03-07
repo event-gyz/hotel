@@ -36,11 +36,13 @@ class BedController extends Controller
     public function actionIndex()
     {
         $searchModel = new BedSearch();
-        if($_GET['room_id']){
+        if(isset($_GET['room_id'])){
             $params = ['BedSearch'=>['room_id'=>$_GET['room_id']]];
-        }else{
+        }
+        else{
             $params = [];
         }
+//        $params = ['BedSearch'=>['room_id'=>21]];
         $dataProvider = $searchModel->search($params);
 
         return $this->render('index', [
@@ -68,9 +70,20 @@ class BedController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Bed();
+//        $model = new Bed();
+//
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->id]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+        $model = new Bed();
+        if ($model->load(Yii::$app->request->post())) {
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
