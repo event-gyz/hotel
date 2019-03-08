@@ -125,6 +125,42 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>'下单时间',
                 'value'=>'create_time'
             ],
+			[
+                'label'=>'邮箱',
+                'value'=>'email'
+            ],
+			[
+                'label'=>'性别',
+                'value'=>
+					function($model){
+
+                        if($model->sex == 1){
+                            return '男';
+                        }else{
+                            return '女';
+                        }
+                    },
+            ],
+			[
+                'label'=>'是否接站',
+                'value'=>
+					function($model){
+
+                        if($model->is_receStation == 1){
+                            return '是';
+                        }else{
+                            return '否';
+                        }
+                    },
+            ],
+			[
+                'label'=>'报名学科',
+                'value'=>'signsubject'
+            ],
+			[
+                'label'=>'备注',
+                'value'=>'remarks'
+            ],
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{delete}',

@@ -221,6 +221,32 @@ class IndexController extends Controller
             $this->_return['msg'] = '联系电话格式不正确';
             $this->response($this->_return);
         }
+		if(empty($data['email'])){
+			$this->_return['errorno'] = -1;
+            $this->_return['msg'] = '邮箱不能为空';
+            $this->response($this->_return);
+		}
+		if(empty($data['signsubject'])){
+			$this->_return['errorno'] = -1;
+            $this->_return['msg'] = '报名学科不能为空';
+            $this->response($this->_return);
+		}
+		if(empty($data['sex'])){
+			$this->_return['errorno'] = -1;
+            $this->_return['msg'] = '性别不能为空';
+            $this->response($this->_return);
+		}
+		if(empty($data['is_receStation'])){
+			$this->_return['errorno'] = -1;
+            $this->_return['msg'] = '请选择是否需要接站';
+            $this->response($this->_return);
+		}
+		if(empty($data['is_pinfang'])){
+			$this->_return['errorno'] = -1;
+            $this->_return['msg'] = '请选择是否拼房';
+            $this->response($this->_return);
+		}
+
         $bed = $bedModel->find()->where(['id'=>$data['bed_id']])->asArray()->one();
 
         $session = Yii::$app->session;

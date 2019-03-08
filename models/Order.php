@@ -78,6 +78,10 @@ class Order extends \yii\db\ActiveRecord
             'num'=>'房间数量',
             'order_no'=>'订单号',
             'open_id'=>'微信open_id',
+			'email'=>'邮箱',
+			'signsubject'=>'报名学科',
+			'is_receStation'=>'是否接站',
+			'remarks','备注',
         ];
     }
 }

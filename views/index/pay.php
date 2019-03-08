@@ -82,15 +82,7 @@
                                 <input type="text" placeholder="11位手机号码"  name="content_phone">
                             </td>
                         </tr>
-<!--                        <tr>-->
-<!--                            <td class="left">是否需要拼房</td>-->
-<!--                            <td >-->
-<!--                                <input type="checkbox" id="is_pinfang" name="is_pinfang" value="1" style="width:15px" class="inputStyle"/>-->
-<!--                                <span class="label-text" style="color:#999">需要</span>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-
-                        <tr hidden id="sex">
+						<tr id="sex">
                             <td class="left">您的性别</td>
                             <td >
                                 <label class="radio-label">
@@ -105,6 +97,70 @@
                                            name="sex" type="radio" style="width:15px" class="custom-control-input inputStyle">
                                     <span class="label-text">女</span>
                                 </label>
+                            </td>
+                        </tr>
+						<tr>
+                            <td class="left">邮箱</td>
+                            <td colspan="2">
+                                <input type="text" placeholder="请输入邮箱"  name="email">
+                            </td>
+                        </tr>
+						<tr>
+                            <td class="left">报名学科</td>
+                            <td colspan="2">
+                                <input type="text" placeholder="请输入报名学科"  name="signsubject">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">是否需要接站</td>
+                            <td >
+								 <label class="radio-label">
+                                    <input id="is_receStation_radio2"
+                                           value='1'
+                                           name="is_receStation" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">需要</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input id="is_receStation_radio1"
+                                           value='2'
+                                           name="is_receStation" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">不需要</span>
+                                </label>
+                            </td>
+                        </tr>
+						<tr>
+                            <td class="left">是否拼房</td>
+                            <td >
+								 <label class="radio-label">
+                                    <input id="is_pinfang_radio2"
+                                           value='1'
+                                           name="is_pinfang" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">是</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input id="is_pinfang_radio1"
+                                           value='2'
+                                           name="is_pinfang" type="radio" style="width:15px" class="custom-control-input inputStyle">
+                                    <span class="label-text">否</span>
+                                </label>
+                            </td>
+                        </tr>
+						
+						
+
+<!--                        <tr>-->
+<!--                            <td class="left">是否需要拼房</td>-->
+<!--                            <td >-->
+<!--                                <input type="checkbox" id="is_pinfang" name="is_pinfang" value="1" style="width:15px" class="inputStyle"/>-->
+<!--                                <span class="label-text" style="color:#999">需要</span>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+
+                        
+						<tr>
+                            <td class="left">备注</td>
+                            <td colspan="2">
+                                <input type="text" placeholder="请输入其他备注信息"  name="remarks">
                             </td>
                         </tr>
                         <input type="hidden" value="<?=$_GET['startDate']?>" name="check_in_time">
